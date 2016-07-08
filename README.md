@@ -3,13 +3,14 @@
 TYPO3 Code Snippet integration for Microsoft Studio Visual Code.
 
 **Status**:
-	1. 26 Condition Snippets
-	2.   0 Typoscript Snippets  (soon)
-	3.   0 Fluid Snippets (soon)
+- 1. 26 Condition Snippets
+- 2.   0 Typoscript Snippets  (soon)
+- 3.   0 Fluid Snippets (soon)
 
 Just type the letters 't3' to get a list of all available TYPO3 Code Snippets.
 
-# Screenshot![Autocomplete](https://raw.githubusercontent.com/MrSilaz/typo3snippets/master/images/snippets.png)
+# Screenshot
+![Autocomplete](https://raw.githubusercontent.com/MrSilaz/typo3snippets/master/images/snippets.png)
 
 # Snippets
 
