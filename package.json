@@ -1,0 +1,32 @@
+{
+	"name": "typo3snippets",
+	"displayName": "TYPO3 Code Snippets",
+	"description": "Over 5 TYPO3 Code Snippets",
+	"version": "0.0.1",
+	"publisher": "Ralf Freit",
+	"license":"MIT",
+	"homepage":"http://www.freit.de",
+	"icon": "images/icon.png",
+	"engines": {
+		"vscode": "^0.10.1"
+	},
+	"galleryBanner": {
+        "color": "#ffffff",
+        "theme": "light"
+    },
+	"categories": [
+		"Snippets"
+	],
+	"contributes": {
+		"extensions": [ ".ts, .t3" ],
+        "aliases": [ "typo3", "ts", "t3" ],
+		"snippets": [{
+			"language": "plaintext",
+			"path": "./snippets/typoscript.json"
+		}]
+	},
+	"devDependencies": {
+		"typescript": "^1.6.2",
+		"vscode": "0.10.x"
+	}
+}
