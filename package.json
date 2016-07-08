@@ -1,32 +1,50 @@
 {
 	"name": "typo3snippets",
-	"displayName": "TYPO3 Code Snippets",
-	"description": "Over 5 TYPO3 Code Snippets",
-	"version": "0.0.1",
-	"publisher": "Ralf Freit",
-	"license":"MIT",
-	"homepage":"http://www.freit.de",
+	"displayName": "TYPO3 Code Snippets (beta)",
+	"description": "TYPO3 Code Snippet integration for Microsoft Studio Visual Code. Just type the letters 't3' to get a list of all available TYPO3 Code Snippets.  (beta)",
+	"version": "0.0.4",
+	"publisher": "ralffreit",
+	"license": "GNU",
+	"homepage": "http://www.freit.de",
 	"icon": "images/icon.png",
+	"preview": "1",
 	"engines": {
 		"vscode": "^0.10.1"
 	},
 	"galleryBanner": {
-        "color": "#ffffff",
-        "theme": "light"
-    },
+		"color": "#ffffff",
+		"theme": "light"
+	},
 	"categories": [
 		"Snippets"
 	],
 	"contributes": {
-		"extensions": [ ".ts, .t3" ],
-        "aliases": [ "typo3", "ts", "t3" ],
-		"snippets": [{
-			"language": "plaintext",
-			"path": "./snippets/typoscript.json"
-		}]
+		"extensions": [
+			".ts, .t3"
+		],
+		"aliases": [
+			"typo3",
+			"ts",
+			"t3"
+		],
+		"snippets": [
+			{
+				"language": "plaintext",
+				"path": "./snippets/typoscript.json"
+			},
+			{
+				"language": "plaintext",
+				"path": "./snippets/fluid.json"
+			}
+		]
 	},
 	"devDependencies": {
 		"typescript": "^1.6.2",
 		"vscode": "0.10.x"
+	},
+	"__metadata": {
+		"id": "20c8d2e7-5c76-4993-8ff5-36b0301cada3",
+		"publisherId": "7ae1d537-9541-46bd-875f-8ff903e7ca00",
+		"publisherDisplayName": "Ralf Freit"
 	}
 }

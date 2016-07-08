@@ -1,0 +1,92 @@
+{
+	"t3FluidLinkAction": {
+		"prefix": "t3FluidLinkAction",
+		"body": [
+			"<f:link.action pageUid='$1' action: '$2' >",
+			"$3",
+			"</f:link.action>"
+		],
+		"description": [
+			"TYPO3 Fluid | <f:link.action pageUid='42' action: 'NULL' >Link</f:link.action>"
+		]
+	},
+	"t3FluidLinkActionInline": {
+		"prefix": "t3FluidLinkActionInline",
+		"body": [
+			"{f:link.action(pageUid: $1, action: '$2')}"
+		],
+		"description": "TYPO3 Fluid inline | {f:link.action(pageUid: 42, action: 'NULL')}"
+	},
+	"t3FluidLinkEmail": {
+		"prefix": "t3FluidLinkEmail",
+		"body": [
+			"<f:link.email email='$1' >",
+			"$2",
+			"</f:link.email>"
+		],
+		"description": [
+			"TYPO3 Fluid | <f:link.email email='example@example.com' >E-Mail</f:link.email>"
+		]
+	},
+	"t3FluidLinkEmailInline": {
+		"prefix": "t3FluidLinkEmailInline",
+		"body": [
+			"{f:link.email(email: 'foo')}"
+		],
+		"description": "TYPO3 Fluid | {TYPO3 Fluid inline | f:link.email(email: 'foo')}"
+	},
+	"t3FluidLinkExternal": {
+		"prefix": "t3FluidLinkExternal",
+		"body": [
+			"<f:link.external uri='$1' >",
+			"$2",
+			"</f:link.external>"
+		],
+		"description": [
+			"TYPO3 Fluid | <f:link.external  uri='foo'>Link</f:link.external>"
+		]
+	},
+	"t3FluidLinkExternalInline": {
+		"prefix": "t3FluidLinkExternalInline",
+		"body": [
+			"{f:link.external(uri: '$1')}"
+		],
+		"description": "TYPO3 Fluid inline | {TYPO3 Fluid inline | f:link.external(uri: '42')}"
+	},
+	"t3FluidLinkPage": {
+		"prefix": "t3FluidLinkPage",
+		"body": [
+			"<f:link.page pageUid='$1' >",
+			"$2",
+			"</f:link.page>"
+		],
+		"description": [
+			"TYPO3 Fluid | <f:link.page  pageUid='42'>Link</f:link.page>"
+		]
+	},
+	"t3FluidLinkPageInline": {
+		"prefix": "t3FluidLinkPageInline",
+		"body": [
+			"{f:link.page(uri: '$1')}"
+		],
+		"description": "TYPO3 Fluid inline | {TYPO3 Fluid inline | f:link.page(pageUid: '42')}"
+	},
+	"t3FluidLinkTypolink": {
+		"prefix": "t3FluidLinkTypolink",
+		"body": [
+			"<f:link.typolink parameter='$1' >",
+			"$2",
+			"</f:link.typolink>"
+		],
+		"description": [
+			"TYPO3 Fluid | <f:link.typolink parameter='42'>LINK</f:link.typolink>"
+		]
+	},
+	"t3FluidLinkTypolinkInline": {
+		"prefix": "t3FluidLinkTypolinkInline",
+		"body": [
+			"{f:link.typolink(parameter: '$1')}"
+		],
+		"description": "TYPO3 Fluid inline | {TYPO3 Fluid inline | f:link.typolink(parameter: '42')}"
+	}
+}
