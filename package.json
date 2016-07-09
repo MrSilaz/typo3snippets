@@ -2,7 +2,7 @@
 	"name": "typo3snippets",
 	"displayName": "TYPO3 Code Snippets (beta)",
 	"description": "TYPO3 Code Snippet integration for Microsoft Studio Visual Code. Just type the letters 't3' to get a list of all available TYPO3 Code Snippets.  (beta)",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"publisher": "ralffreit",
 	"license": "GNU",
 	"homepage": "http://www.freit.de",
