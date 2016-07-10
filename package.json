@@ -1,13 +1,13 @@
 {
 	"name": "typo3snippets",
 	"displayName": "TYPO3 Code Snippets (beta)",
-	"description": "TYPO3 Code Snippet integration for Microsoft Studio Visual Code. Just type the letters 't3' to get a list of all available TYPO3 Code Snippets.  (beta)",
-	"version": "0.0.5",
+	"description": "TYPO3 Code Snippet integration. Just type the letters 't3' to get a list of all available TYPO3 Code Snippets.",
+	"version": "0.0.6",
 	"publisher": "ralffreit",
 	"license": "GNU",
 	"homepage": "http://www.freit.de",
 	"icon": "images/icon.png",
-	"preview": "1",
+	"preview": "0",
 	"engines": {
 		"vscode": "^0.10.1"
 	},
@@ -25,7 +25,8 @@
 		"aliases": [
 			"typo3",
 			"ts",
-			"t3"
+			"t3",
+			"fluid"
 		],
 		"snippets": [
 			{

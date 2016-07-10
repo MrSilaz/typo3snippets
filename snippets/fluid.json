@@ -492,4 +492,308 @@
 		],
 		"description": "TYPO3 Fluid inline | {f:format.htmlentitiesDecode(value: 'NULL', keepQuotes: 1, encoding: 'NULL', doubleEncode:1)}"
 	},
+
+	"t3FluidFormatHtmlspecialchars": {
+		"prefix": "t3FluidFormatHtmlspecialchars",
+		"body": [
+			"<f:format.htmlspecialchars keepQuotes=\"1\" encoding=\"NULL\" doubleEncode=\"1\">",
+			"	$1",
+			"</f:format.htmlspecialchars>"
+		],
+		"description": "TYPO3 Fluid inline | <f:format.htmlspecialchars keepQuotes=\"1\" encoding=\"NULL\" doubleEncode=\"1\">
+				{data}
+				</f:format.htmlspecialchars>"
+	},
+	"t3FluidFormatHtmlspecialcharsInline": {
+		"prefix": "t3FluidFormatHtmlspecialcharsInline",
+		"body": [
+			"{f:format.htmlspecialchars(value: '$1', keepQuotes: 1, encoding: 'NULL', doubleEncode: 1)}"
+		],
+		"description": "TYPO3 Fluid inline | {f:format.htmlspecialchars(value: 'NULL', keepQuotes: 1, encoding: 'NULL', doubleEncode: 1)}"
+	},
+	"t3FluidFormatNl2br": {
+		"prefix": "t3FluidFormatNl2br",
+		"body": [
+			"<f:format.nl2br value=\"$1\">"
+		],
+		"description": "TYPO3 Fluid inline | <f:format.nl2br value=\"Hello World\">"
+	},
+	"t3FluidFormatNl2brInline": {
+		"prefix": "t3FluidFormatNl2brInline",
+		"body": [
+			"{f:format.nl2br(value: '$1')}"
+		],
+		"description": "TYPO3 Fluid inline | {f:format.nl2br(value: 'Hello World')}"
+	},
+	"t3FluidFormatNumber": {
+		"prefix": "t3FluidFormatNumber",
+		"body": [
+			"<f:format.number decimals=\"$1\" decimalSeparator=\".\" thousandsSeparator=\",\">
+				$2
+			</f:format.number>"
+		],
+		"description": "TYPO3 Fluid inline | <f:format.number decimals=\"123\" decimalSeparator=\".\" thousandsSeparator=\",\">
+				{numbers}
+			</f:format.number>"
+	},
+	"t3FluidFormatNumberInline": {
+		"prefix": "t3FluidFormatNumberInline",
+		"body": [
+			"{$1->f:format.number(decimals: $2, decimalSeparator: ''.'', thousandsSeparator: '','')}"
+		],
+		"description": "TYPO3 Fluid inline | {f:format.number(decimals: 123, decimalSeparator: ''.'', thousandsSeparator: '','')}"
+	},
+	"t3FluidFormatPrintf": {
+		"prefix": "t3FluidFormatPrintf",
+		"body": [
+			"<f:format.printf arguments=\"{0: 3, 1: 'Kasper'}\">
+			%2$s is great, TYPO%1$d too. Yes, TYPO%1$d is great and so is %2$s!
+			</f:format.printf>"
+		],
+		"description": "TYPO3 Fluid inline | <f:format.printf arguments=\"{0: 3, 1: 'Kasper'}\">
+			%2$s is great, TYPO%1$d too. Yes, TYPO%1$d is great and so is %2$s!
+			</f:format.printf>"
+	},
+	"t3FluidFormatPrintfInline": {
+		"prefix": "t3FluidFormatPrintfInline",
+		"body": [
+			"{$1 -> f:format.printf(arguments: {1: '$2'})}"
+		],
+		"description": "TYPO3 Fluid inline | {someText -> f:format.printf(arguments: {1: 'TYPO3'})}"
+	},
+	"t3FluidFormatRaw": {
+		"prefix": "t3FluidFormatRaw",
+		"body": [
+			"<f:format.raw>$1</f:format.raw>"
+		],
+		"description": "TYPO3 Fluid inline | <f:format.raw>{string}</f:format.raw>"
+	},
+	"t3FluidFormatRawInline": {
+		"prefix": "t3FluidFormatRawInline",
+		"body": [
+			"{$1 -> f:format.raw()}"
+		],
+		"description": "TYPO3 Fluid inline | {string -> f:format.raw()}"
+	},
+	"t3FluidFormatStriptags": {
+		"prefix": "t3FluidFormatStriptags",
+		"body": [
+			"<f:format.stripTags value=\"$1\" />"
+		],
+		"description": "TYPO3 Fluid inline | <f:format.stripTags value=\"Hello<br>World\" />"
+	},
+	"t3FluidFormatStriptagsInline": {
+		"prefix": "t3FluidFormatStriptagsInline",
+		"body": [
+			"{f:format.stripTags(value: '$1')}"
+		],
+		"description": "TYPO3 Fluid inline | {f:format.stripTags(value: 'Hello<br>World')}"
+	},
+	"t3FluidFormatUrlencode": {
+		"prefix": "t3FluidFormatUrlencode",
+		"body": [
+			"<f:format.urlencode value=\"$1\" />"
+		],
+		"description": "TYPO3 Fluid inline | <f:format.urlencode value=\"http://www.freit.de\" />"
+	},
+	"t3FluidFormatUrlencodeInline": {
+		"prefix": "t3FluidFormatUrlencodeInline",
+		"body": [
+			"{f:format.urlencode(value: '$1')}"
+		],
+		"description": "TYPO3 Fluid inline | {f:format.urlencode(value: 'http://www.freit.de')}"
+	},
+	"t3FluidFormButton": {
+		"prefix": "t3FluidFormButton",
+		"body": [
+			"<f:form.button type=\"$2\" name=\"$3\" property=\"$4\" >",
+			"	$1",
+			"</f:form.button>"
+		],
+		"description": "TYPO3 Fluid inline | <f:form.button type=\"submit\" name=\"NULL\" property=\"NULL\" >
+				Submit
+			</f:form.button>"
+	},
+	"t3FluidFormButtonInline": {
+		"prefix": "t3FluidFormButtonInline",
+		"body": [
+			"{f:form.button(type: '$1', name: '$2', value: '$3', property: '$4')}"
+		],
+		"description": "TYPO3 Fluid inline | {f:form.button(type: 'submit', name: 'NULL', value: 'Submit', property: 'NULL')}"
+	},
+	"t3FluidFormCheckbox": {
+		"prefix": "t3FluidFormCheckbox",
+		"body": [
+			"<f:form.checkbox checked=\"$1\"  name=\"$2\" value=\"$3\" property=\"$4\" />"
+		],
+		"description": "TYPO3 Fluid inline | <f:form.checkbox checked=\"1\"  name=\"NULL\" value=\"foo\" property=\"NULL\" />"
+	},
+	"t3FluidFormCheckboxInline": {
+		"prefix": "t3FluidFormCheckboxInline",
+		"body": [
+			"{f:form.checkbox(checked: $1,  name: '$2', value: '$3', property: '$4')}"
+		],
+		"description": "TYPO3 Fluid inline | {f:form.checkbox(checked: 1,  name: 'NULL', value: 'foo', property: 'NULL')}"
+	},
+	"t3FluidFormHidden": {
+		"prefix": "t3FluidFormHidden",
+		"body": [
+			"<f:form.hidden name=\"$1\" value=\"$2\" property=\"$3\" />"
+		],
+		"description": "TYPO3 Fluid inline | <f:form.hidden name=\"NULL\" value=\"[mixed]\" property=\"NULL\" />"
+	},
+	"t3FluidFormHiddenInline": {
+		"prefix": "t3FluidFormHiddenInline",
+		"body": [
+			"{f:form.hidden(name: '$1', value: '$2', property: '$3')}"
+		],
+		"description": "TYPO3 Fluid inline | {f:form.hidden(name: 'NULL', value: 'foo', property: 'NULL')}"
+	},
+	"t3FluidFormPassword": {
+		"prefix": "t3FluidFormPassword",
+		"body": [
+			"<f:form.password name=\"$1\" value=\"$2\" property=\"$3\"  />"
+		],
+		"description": "TYPO3 Fluid inline | <f:form.password name=\"NULL\" value=\"[mixed]\" property=\"NULL\"  />"
+	},
+	"t3FluidFormPasswordInline": {
+		"prefix": "t3FluidFormPasswordInline",
+		"body": [
+			"{f:form.password(name: '$1', value: $2, property: '$3')}"
+		],
+		"description": "TYPO3 Fluid inline | {f:form.password(name: 'NULL', value: [mixed], property: 'NULL')}"
+	},
+	"t3FluidFormRadio": {
+		"prefix": "t3FluidFormRadio",
+		"body": [
+			"<f:form.radio checked=\"1\" name=\"NULL\" value=\"foo\" property=\"NULL\" />"
+		],
+		"description": "TYPO3 Fluid inline | <f:form.radio checked=\"1\" name=\"NULL\" value=\"foo\" property=\"NULL\" />"
+	},
+	"t3FluidFormRadioInline": {
+		"prefix": "t3FluidFormRadioInline",
+		"body": [
+			"{f:form.radio(checked: $1, name: '$2', value: '$3', property: '$4')}"
+		],
+		"description": "TYPO3 Fluid inline | {f:form.radio(checked: 1, name: 'NULL', value: 'foo', property: 'NULL')}"
+	},
+	"t3FluidFormTextarea": {
+		"prefix": "t3FluidFormTextarea",
+		"body": [
+			"<f:form.textarea name=\"$1\" property=\"$2\" rows=\"$3\" cols=\"$4\"></f:form.textarea>"
+		],
+		"description": "TYPO3 Fluid inline | <f:form.textarea name=\"NULL\" property=\"NULL\" rows=\"[anySimpleType]\" cols=\"[anySimpleType]\"></f:form.textarea>"
+	},
+	"t3FluidFormTextfield": {
+		"prefix": "t3FluidFormTextfield",
+		"body": [
+			"<f:form.textfield type=\"text\" name=\"$1\" value=\"$2\" property=\"$3\"  />"
+		],
+		"description": "TYPO3 Fluid inline | <f:form.textfield type=\"text\" name=\"NULL\" value=\"[mixed]\" property=\"NULL\"  />"
+	},
+	"t3FluidFormTextfieldInline": {
+		"prefix": "t3FluidFormTextfieldInline",
+		"body": [
+			"{f:form.textfield(type: 'text, name: '$1', value: '$2', property: '$3')}"
+		],
+		"description": "TYPO3 Fluid inline | {f:form.textfield(type: 'text, name: 'NULL', value: [mixed], property: 'NULL')}"
+	},
+	"t3FluidFormUpload": {
+		"prefix": "t3FluidFormUpload",
+		"body": [
+			"<f:form.upload name=\"$1\" value=\"$2\" property=\"$3\" multiple=\"$4\"  />"
+		],
+		"description": "TYPO3 Fluid inline | <f:form.upload name=\"NULL\" property=\"NULL\" multiple=\"NULL\" />"
+	},
+	"t3FluidFormUploadInline": {
+		"prefix": "t3FluidFormUploadInline",
+		"body": [
+			"{f:form.upload(name: '$1', property: '$3', multiple: '$4')}"
+		],
+		"description": "TYPO3 Fluid inline | {f:form.upload(name: 'NULL', property: 'NULL', multiple: '1')}"
+	},
+	"t3FluidUriAction": {
+		"prefix": "t3FluidUriAction",
+		"body": [
+			"<f:uri.action action=\"$1\" pageUid=\"$2\"  />"
+		],
+		"description": "TYPO3 Fluid inline | <f:uri.action action=\"NULL\" pageUid=\"123\"  />"
+	},
+	"t3FluidUriActionInline": {
+		"prefix": "t3FluidUriActionInline",
+		"body": [
+			"{f:uri.action(action: '$1', pageUid: $2}"
+		],
+		"description": "TYPO3 Fluid inline | {f:uri.action(action: 'NULL', pageUid: 123}"
+	},
+	"t3FluidUriEmail": {
+		"prefix": "t3FluidUriEmail",
+		"body": [
+			"<f:uri.email email=\"$1\">"
+		],
+		"description": "TYPO3 Fluid inline | <f:uri.email email=\"foo\">"
+	},
+	"t3FluidUriEmailInline": {
+		"prefix": "t3FluidUriEmailInline",
+		"body": [
+			"{f:uri.email(email: '$1')}"
+		],
+		"description": "TYPO3 Fluid inline | {f:uri.email(email: 'mail@example.net')}"
+	},
+	"t3FluidUriExternal": {
+		"prefix": "t3FluidUriExternal",
+		"body": [
+			"<f:uri.external uri=\"$1\" defaultScheme=\"http\" />"
+		],
+		"description": "TYPO3 Fluid inline | <f:uri.external uri=\"freit.de\" defaultScheme=\"http\" />"
+	},
+	"t3FluidUriExternalInline": {
+		"prefix": "t3FluidUriExternalInline",
+		"body": [
+			"{f:uri.external(uri: 'foo', defaultScheme: ''http'')}"
+		],
+		"description": "TYPO3 Fluid inline | {f:uri.external(uri: '$1', defaultScheme: 'http')}"
+	},
+	"t3FluidUriImage": {
+		"prefix": "t3FluidUriImage",
+		"body": [
+			"<f:uri.image src=\"$1\" image=\"$1\" width=\"$1\" height=\"$1\" treatIdAsReference=\"1\" />"
+		],
+		"description": "TYPO3 Fluid inline | <f:uri.image src=\"NULL\" image=\"[anySimpleType]\" width=\"NULL\" height=\"NULL\" treatIdAsReference=\"1\" />"
+	},
+	"t3FluidUriImageInline": {
+		"prefix": "t3FluidUriImageInline",
+		"body": [
+			"{f:uri.image(src: '$1', image: $2, width: '$3', height: '$4', treatIdAsReference: 1)}"
+		],
+		"description": "TYPO3 Fluid inline | {f:uri.image(src: 'NULL', image: [anySimpleType], width: 'NULL', height: 'NULL', treatIdAsReference: 1)}"
+	},
+	"t3FluidUriPage": {
+		"prefix": "t3FluidUriPage",
+		"body": [
+			"<f:uri.page pageUid=\"$1\"  />"
+		],
+		"description": "TYPO3 Fluid inline | <f:uri.page pageUid=\"42\"  />"
+	},
+	"t3FluidUriPageInline": {
+		"prefix": "t3FluidUriPageInline",
+		"body": [
+			"{f:uri.page(pageUid: $1)}"
+		],
+		"description": "TYPO3 Fluid inline | {f:uri.page(pageUid: 23)}"
+	},
+	"t3FluidUriTypolink": {
+		"prefix": "t3FluidUriTypolink",
+		"body": [
+			"<f:uri.typolink parameter=\"foo\" additionalParams=\"\">"
+		],
+		"description": "TYPO3 Fluid inline | <f:uri.typolink parameter=\"foo\" additionalParams=\"\">"
+	},
+	"t3FluidUriTypolinkInline": {
+		"prefix": "t3FluidUriTypolinkInline",
+		"body": [
+			"{f:uri.typolink(parameter: '$1', additionalParams: ')}"
+		],
+		"description": "TYPO3 Fluid inline | {f:uri.typolink(parameter: 'foo', additionalParams: ')}"
+	}
 }

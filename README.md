@@ -1,11 +1,11 @@
 # TYPO3 Code Snippets 
 
-TYPO3 Code Snippet integration for Microsoft Studio Visual Code.
+TYPO3 Code Snippet integration for Microsoft Visual Studio Code.
 
-**Status**:
+**Current status**:
 - 27 Condition Snippets
 - 0 Typoscript Snippets  (soon)
-- 51 Fluid Snippets (soon more)
+- 92 Fluid Snippets
 
 Just type the letters 't3' to get a list of all available TYPO3 Code Snippets.
 
@@ -97,9 +97,47 @@ t3FluidFormatHtmlentitiesdecode | &lt;f:format.htmlentitiesDecode value=&quot;NU
 t3FluidFormatHtmlentitiesdecodeInline | {f:format.htmlentitiesDecode(value: 'NULL', keepQuotes: 1, encoding: 'NULL')}
 t3FluidFormatHtmlentities | &lt;f:format.htmlentitiesDecode value=&quot;NULL&quot; keepQuotes=&quot;1&quot; encoding=&quot;NULL&quot;  doubleEncode=&quot;1&quot;/&gt;
 t3FluidFormatHtmlentitiesInline | {f:format.htmlentitiesDecode(value: 'NULL', keepQuotes: 1, encoding: 'NULL', doubleEncode:1)}
-
-
-
+t3FluidFormatHtmlspecialchars | &lt;f:format.htmlspecialchars keepQuotes=&quot;1&quot; encoding=&quot;NULL&quot; doubleEncode=&quot;1&quot;&gt;<br>   &nbsp;&nbsp;&nbsp;{data}&nbsp;<br>&lt;/f:format.htmlspecialchars&gt;
+t3FluidFormatHtmlspecialcharsInline | {f:format.htmlspecialchars(value: 'NULL', keepQuotes: 1, encoding: 'NULL', doubleEncode: 1)}
+t3FluidFormatNl2br | &lt;f:format.nl2br value=&quot;Hello World&quot;&gt;
+t3FluidFormatNl2brInline | {f:format.nl2br(value: 'Hello World')}
+t3FluidFormatNumber | &lt;f:format.number decimals=&quot;123&quot; decimalSeparator=&quot;.&quot; thousandsSeparator=&quot;,&quot;&gt;{numbers}&lt;/f:format.number&gt;
+t3FluidFormatNumberInline | {f:format.number(decimals: 123, decimalSeparator: ''.'', thousandsSeparator: '','')}
+t3FluidFormatPrintf | &lt;f:format.printf arguments=&quot;{0: 3, 1: 'Kasper'}&quot;&gt;<br>   &nbsp;%2$s is great, TYPO%1$d too. Yes, TYPO%1$d is great and so is %2$s.<br>&lt;/f:format.printf&gt;
+t3FluidFormatPrintfInline | {someText -&gt; f:format.printf(arguments: {1: 'TYPO3'})}
+t3FluidFormatRaw | &lt;f:format.raw&gt;{string}&lt;/f:format.raw&gt;
+t3FluidFormatRawInline | {string -&gt; f:format.raw()}
+t3FluidFormatStriptags | &lt;f:format.stripTags value=&quot;Hello&lt;br&gt;World&quot; /&gt;
+t3FluidFormatStriptagsInline | {f:format.stripTags(value: 'Hello&lt;br&gt;World')}
+t3FluidFormatUrlencode | &lt;f:format.urlencode value=&quot;http://www.freit.de&quot; /&gt;
+t3FluidFormatUrlencodeInline | {f:format.urlencode(value: 'http://www.freit.de')}
+t3FluidFormButton | &lt;f:form.button type=&quot;submit&quot; name=&quot;NULL&quot; property=&quot;NULL&quot; &gt;Submit&lt;/f:form.button&gt;
+t3FluidFormButtonInline | {f:form.button(type: 'submit', name: 'NULL', value: 'Submit', property: 'NULL')}
+t3FluidFormCheckbox | &lt;f:form.checkbox checked=&quot;1&quot;  name=&quot;NULL&quot; value=&quot;foo&quot; property=&quot;NULL&quot; /&gt;
+t3FluidFormCheckboxInline | {f:form.checkbox(checked: 1,  name: 'NULL', value: 'foo', property: 'NULL')}
+t3FluidFormHidden | &lt;f:form.hidden name=&quot;NULL&quot; value=&quot;[mixed]&quot; property=&quot;NULL&quot; /&gt;
+t3FluidFormHiddenInline | {f:form.hidden(name: 'NULL', value: 'foo', property: 'NULL')}
+t3FluidFormPassword | &lt;f:form.password name=&quot;NULL&quot; value=&quot;[mixed]&quot; property=&quot;NULL&quot;  /&gt;
+t3FluidFormPasswordInline | {f:form.password(name: 'NULL', value: [mixed], property: 'NULL')}
+t3FluidFormRadio | &lt;f:form.radio checked=&quot;1&quot; name=&quot;NULL&quot; value=&quot;foo&quot; property=&quot;NULL&quot; /&gt;
+t3FluidFormRadioInline | {f:form.radio(checked: 1, name: 'NULL', value: 'foo', property: 'NULL')}
+t3FluidFormTextarea | &lt;f:form.textarea name=&quot;NULL&quot; property=&quot;NULL&quot; rows=&quot;[anySimpleType]&quot; cols=&quot;[anySimpleType]&quot;&gt;&lt;/f:form.textarea&gt;
+t3FluidFormTextfield | &lt;f:form.textfield type=&quot;text&quot; name=&quot;NULL&quot; value=&quot;[mixed]&quot; property=&quot;NULL&quot;  /&gt;
+t3FluidFormTextfieldInline | {f:form.textfield(type: 'text, name: 'NULL', value: [mixed], property: 'NULL')}
+t3FluidFormUpload | &lt;f:form.upload name=&quot;NULL&quot; property=&quot;NULL&quot; multiple=&quot;NULL&quot; /&gt;
+t3FluidFormUploadInline | {f:form.upload(name: 'NULL', property: 'NULL', multiple: '1')}
+t3FluidUriAction | &lt;f:uri.action action=&quot;NULL&quot; pageUid=&quot;123&quot;  /&gt;
+t3FluidUriActionInline | {f:uri.action(action: 'NULL', pageUid: 123}
+t3FluidUriEmail | &lt;f:uri.email email=&quot;foo&quot;&gt;
+t3FluidUriEmailInline | {f:uri.email(email: '$1')}
+t3FluidUriExternal | &lt;f:uri.external uri=&quot;freit.de&quot; defaultScheme=&quot;http&quot; /&gt;
+t3FluidUriExternalInline | {f:uri.external(uri: '$1', defaultScheme: 'http')}
+t3FluidUriImage | &lt;f:uri.image src=&quot;NULL&quot; image=&quot;[anySimpleType]&quot; width=&quot;NULL&quot; height=&quot;NULL&quot; treatIdAsReference=&quot;1&quot; /&gt;
+t3FluidUriImageInline | {f:uri.image(src: 'NULL', image: [anySimpleType], width: 'NULL', height: 'NULL', treatIdAsReference: 1)}
+t3FluidUriPage | &lt;f:uri.page pageUid=&quot;42&quot;  /&gt;
+t3FluidUriPageInline | {f:uri.page(pageUid: 23)}
+t3FluidUriTypolink | &lt;f:uri.typolink parameter=&quot;foo&quot; additionalParams=&quot;&quot;&gt;
+t3FluidUriTypolinkInline | {f:uri.typolink(parameter: 'foo', additionalParams: ')}
 
 
 ## Donate & Support
@@ -109,9 +147,20 @@ t3FluidFormatHtmlentitiesInline | {f:format.htmlentitiesDecode(value: 'NULL', ke
 ## Source
 
 All snippets have been taken from [TYPO3.org](https://typo3.org/)
-Source on [GitHub](https://github.com/MrSilaz/typo3snippets)
-Visual Studio Code [Marketplace](https://marketplace.visualstudio.com/items?itemName=ralffreit.typo3snippets) 
+Source on [GitHub](https://github.com/MrSilaz/typo3snippets) 
+On Visual Studio [Marketplace](https://marketplace.visualstudio.com/items?itemName=ralffreit.typo3snippets) 
         
 ## License
 
 [GNU](http://www.gnu.org/licenses/gpl-2.0.html)
+
+## Changelog
+0.0.6 - 42 Fluid Snippets addet, little Readme fixes
+
+<!-- 
+[//]: # ## ToDo´s
+[//]: # - More Snippets
+[//]: # - Userform to Submit new Snippets
+[//]: # - Associating with .ts, .fluid files
+[//]: # - Set new File language
+-->
