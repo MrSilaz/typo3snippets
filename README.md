@@ -146,7 +146,7 @@ t3FluidUriTypolinkInline | {f:uri.typolink(parameter: 'foo', additionalParams: '
 
 ## Source
 
-All snippets have been taken from [TYPO3.org](https://typo3.org/)
+All snippets have been taken from [TYPO3.org](https://typo3.org/) 
 Source on [GitHub](https://github.com/MrSilaz/typo3snippets) 
 On Visual Studio [Marketplace](https://marketplace.visualstudio.com/items?itemName=ralffreit.typo3snippets) 
         
@@ -155,7 +155,12 @@ On Visual Studio [Marketplace](https://marketplace.visualstudio.com/items?itemNa
 [GNU](http://www.gnu.org/licenses/gpl-2.0.html)
 
 ## Changelog
-0.0.6 - 42 Fluid Snippets addet, little Readme fixes
+**0.0.6**
+42 Fluid Snippets addet, little Readme fixes
+**0.0.7** 
+- New File Type Association with .ts, .fluid and .t3
+- New Language "TypoScript" (! conflict with TypeScript, you need to change your settings manually)
+- Fluid and Typoscript add to HTML Language autocomplete
 
 <!-- 
 [//]: # ## ToDo´s
