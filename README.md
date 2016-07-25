@@ -139,6 +139,16 @@ t3FluidUriPageInline | {f:uri.page(pageUid: 23)}
 t3FluidUriTypolink | &lt;f:uri.typolink parameter=&quot;foo&quot; additionalParams=&quot;&quot;&gt;
 t3FluidUriTypolinkInline | {f:uri.typolink(parameter: 'foo', additionalParams: ')}
 
+## Manually change the .ts file association
+Open settings.json<br>
+&nbsp;&nbsp;&nbsp;**Windows** `%APPDATA%\Code\User\settings.json`<br>
+&nbsp;&nbsp;&nbsp;**Mac** `$HOME/Library/Application Support/Code/User/settings.json`<br>
+&nbsp;&nbsp;&nbsp;**Linux** `$HOME/.config/Code/User/settings.json`
+
+Add following line
+```"files.associations": {"*.ts" : "typoscript"}```
+
+
 
 ## Donate & Support
 [Donate via PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CJTDRV6L4AR6J)
@@ -146,21 +156,23 @@ t3FluidUriTypolinkInline | {f:uri.typolink(parameter: 'foo', additionalParams: '
 
 ## Source
 
-All snippets have been taken from [TYPO3.org](https://typo3.org/) 
-Source on [GitHub](https://github.com/MrSilaz/typo3snippets) 
+All snippets have been taken from [TYPO3.org](https://typo3.org/) <br>
+Source on [GitHub](https://github.com/MrSilaz/typo3snippets) <br>
 On Visual Studio [Marketplace](https://marketplace.visualstudio.com/items?itemName=ralffreit.typo3snippets) 
         
 ## License
 
-[GNU](http://www.gnu.org/licenses/gpl-2.0.html)
+[GNU General Public License (GPL), Version 2.0](http://www.gnu.org/licenses/gpl-2.0.html)
 
 ## Changelog
-**0.0.6**
-42 Fluid Snippets addet, little Readme fixes
-**0.0.7** 
+**0.0.7** <br>
 - New File Type Association with .ts, .fluid and .t3
 - New Language "TypoScript" (! conflict with TypeScript, you need to change your settings manually)
 - Fluid and Typoscript add to HTML Language autocomplete
+
+**0.0.6**<br>
+- 42 Fluid Snippets addet, little Readme fixes
+
 
 <!-- 
 [//]: # ## ToDo´s
