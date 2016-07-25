@@ -145,8 +145,13 @@ Open settings.json<br>
 &nbsp;&nbsp;&nbsp;**Mac** `$HOME/Library/Application Support/Code/User/settings.json`<br>
 &nbsp;&nbsp;&nbsp;**Linux** `$HOME/.config/Code/User/settings.json`
 
-Add following line
-```"files.associations": {"*.ts" : "typoscript"}```
+Add following lines<br>
+```
+"files.associations": {
+    "*.ts" : "typoscript",
+    "*.t3" : "typoscript"
+}
+```
 
 
 
