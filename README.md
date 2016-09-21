@@ -6,8 +6,12 @@ TYPO3 Code Snippet integration for Microsoft Visual Studio Code.
 - 27 Condition Snippets
 - 0 Typoscript Snippets  (soon)
 - 92 Fluid Snippets
+- 0 PHP Snippets (soon)
 
 Just type the letters 't3' to get a list of all available TYPO3 Code Snippets.
+
+# TYPO3Snippets need your help!
+We need more useful high quality snippets visit and submit on http://typo3snippets.freit.de/ !
 
 # Screenshot
 ![Autocomplete](https://raw.githubusercontent.com/MrSilaz/typo3snippets/master/images/snippets.png)
@@ -109,7 +113,7 @@ t3FluidFormatRaw | &lt;f:format.raw&gt;{string}&lt;/f:format.raw&gt;
 t3FluidFormatRawInline | {string -&gt; f:format.raw()}
 t3FluidFormatStriptags | &lt;f:format.stripTags value=&quot;Hello&lt;br&gt;World&quot; /&gt;
 t3FluidFormatStriptagsInline | {f:format.stripTags(value: 'Hello&lt;br&gt;World')}
-t3FluidFormatUrlencode | &lt;f:format.urlencode value=&quot;http://www.freit.de&quot; /&gt;
+t3FluidFormatUrlencode | &lt;f:format.urlencode value=&quot;http://www.freit.de &quot; /&gt;
 t3FluidFormatUrlencodeInline | {f:format.urlencode(value: 'http://www.freit.de')}
 t3FluidFormButton | &lt;f:form.button type=&quot;submit&quot; name=&quot;NULL&quot; property=&quot;NULL&quot; &gt;Submit&lt;/f:form.button&gt;
 t3FluidFormButtonInline | {f:form.button(type: 'submit', name: 'NULL', value: 'Submit', property: 'NULL')}
@@ -170,15 +174,35 @@ On Visual Studio [Marketplace](https://marketplace.visualstudio.com/items?itemNa
 [GNU General Public License (GPL), Version 2.0](http://www.gnu.org/licenses/gpl-2.0.html)
 
 ## Changelog
+<<<<<<< HEAD
+**0.0.9** 
+- Super awesome spezial bugfixfix :-D
+
+**0.0.8** 
+- Add new Online form to add snippets ( http://typo3snippets.freit.de/ )
+- Small bugfixes
+
+**0.0.7** 
+=======
 **0.0.7** <br>
+>>>>>>> origin/master
 - New File Type Association with .ts, .fluid and .t3
 - New Language "TypoScript" (! conflict with TypeScript, you need to change your settings manually)
 - Fluid and Typoscript add to HTML Language autocomplete
 
+<<<<<<< HEAD
+
+**0.0.6**
+- 42 Fluid Snippets addet, little Readme fixes
+
+
+
+=======
 **0.0.6**<br>
 - 42 Fluid Snippets addet, little Readme fixes
 
 
+>>>>>>> origin/master
 <!-- 
 [//]: # ## ToDo´s
 [//]: # - More Snippets
