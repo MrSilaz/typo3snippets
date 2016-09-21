@@ -189,8 +189,6 @@ On Visual Studio [Marketplace](https://marketplace.visualstudio.com/items?itemNa
 **0.0.6**
 - 42 Fluid Snippets addet, little Readme fixes
 
-**0.0.6**
-- 42 Fluid Snippets addet, little Readme fixes
 
 <!-- 
 [//]: # ## ToDo´s
