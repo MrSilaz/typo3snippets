@@ -1,13 +1,13 @@
 {
 	"name": "typo3snippets",
-	"displayName": "TYPO3 Code Snippets (beta)",
+	"displayName": "TYPO3 Code Snippets",
 	"description": "TYPO3 Code Snippet integration. Just type the letters 't3' to get a list of all available TYPO3 Code Snippets.",
-	"version": "0.0.7",
+	"version": "0.0.9",
 	"publisher": "ralffreit",
 	"license": "GNU",
 	"homepage": "http://www.freit.de",
 	"icon": "images/icon.png",
-	"preview": "0",
+	"preview": "false",
 	"engines": {
 		"vscode": "^0.10.1"
 	},
@@ -18,6 +18,17 @@
 	"categories": [
 		"Snippets"
 	],
+	"bugs": {
+		"url": "http://typo3snippets.freit.de/",
+		"email": "ralf@freit.de"
+	},
+	"keywords": [
+		"typo3", "typoscript", "fluid", "autocomplete"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/MrSilaz/typo3snippets.git"
+	},
 	"contributes": {
         "languages": [
 			{
