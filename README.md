@@ -174,7 +174,6 @@ On Visual Studio [Marketplace](https://marketplace.visualstudio.com/items?itemNa
 [GNU General Public License (GPL), Version 2.0](http://www.gnu.org/licenses/gpl-2.0.html)
 
 ## Changelog
-<<<<<<< HEAD
 **0.0.9** 
 - Super awesome spezial bugfixfix :-D
 
@@ -183,26 +182,16 @@ On Visual Studio [Marketplace](https://marketplace.visualstudio.com/items?itemNa
 - Small bugfixes
 
 **0.0.7** 
-=======
-**0.0.7** <br>
->>>>>>> origin/master
 - New File Type Association with .ts, .fluid and .t3
 - New Language "TypoScript" (! conflict with TypeScript, you need to change your settings manually)
 - Fluid and Typoscript add to HTML Language autocomplete
 
-<<<<<<< HEAD
+**0.0.6**
+- 42 Fluid Snippets addet, little Readme fixes
 
 **0.0.6**
 - 42 Fluid Snippets addet, little Readme fixes
 
-
-
-=======
-**0.0.6**<br>
-- 42 Fluid Snippets addet, little Readme fixes
-
-
->>>>>>> origin/master
 <!-- 
 [//]: # ## ToDo´s
 [//]: # - More Snippets
