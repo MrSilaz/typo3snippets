@@ -1,246 +1,580 @@
 {
-	"t3ConLanguage": {
-		"prefix": "t3ConLanguage",
+	"t3ApplicationContext": {
+		"prefix": "t3ApplicationContext",
+		"body": [
+			"[applicationContext == '${1:Development}']",
+			"\t${2:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\n Current application context as string."
+	},
+	"t3Page": {
+		"prefix": "t3Page",
+		"body": [
+			"[page[\"${1:uid}\"] == ${2:2}]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\n Current page record as array."
+	},
+	"t3Constant": {
+		"prefix": "t3Constant",
+		"body": [
+			"[{${1:\\$foo.bar}} == ${2:4711}]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\n Any TypoScript constant is available like before. Depending on the type of the constant you have to use different conditions."
+	},
+	"t3ConstantString": {
+		"prefix": "t3ConstantString",
+		"body": [
+			"[\"{${1:\\$foo.bar}}\" == \"${2:4711}\"]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\n Any TypoScript constant is available like before. Depending on the type of the constant you have to use different conditions."
+	},
+	"t3Treelevel": {
+		"prefix": "t3Treelevel",
+		"body": [
+			"[tree.level == ${1:0}]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nCurrent tree level."
+	},
+	"t3TreeRootLineIds": {
+		"prefix": "t3TreeRootLineIds",
+		"body": [
+			"[${1:2} in tree.rootLineIds]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nCheck whether page with uid 2 is inside the root line:"
+	},
+	"t3TreeRootLine": {
+		"prefix": "t3TreeRootLine",
+		"body": [
+			"[tree.rootLine[0][\"${1:uid}\"] == ${2:1}]"
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nArray of arrays with uid and pid."
+	},
+	"t3BackendUserIsAdmin": {
+		"prefix": "t3BackendUserIsAdmin",
+		"body": [
+			"[backend.user.isAdmin]"
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nTrue if current BE-User is administrator."
+	},
+	"t3BackendUserIsLoggedIn": {
+		"prefix": "t3BackendUserIsLoggedIn",
+		"body": [
+			"[backend.user.isLoggedIn]"
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nTrue if an BE-User is logged in."
+	},
+	"t3BackendUserId": {
+		"prefix": "t3BackendUserId",
+		"body": [
+			"[backend.user.userId == ${1:4}]"
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nTrue if user uid of current logged in BE-User is equal to 4"
+	},
+	"t3BackendUserGroupList": {
+		"prefix": "t3BackendUserGroupList",
+		"body": [
+			"[like(\",\"~backend.user.userGroupList~\",\", \"*,${1:1},*\")]"
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nComma list of group UIDs"
+	},
+	"t3FrontendUserIsLoggedIn": {
+		"prefix": "t3FrontendUserIsLoggedIn",
+		"body": [
+			"[frontend.user.isLoggedIn]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nTrue if current user is logged in"
+	},
+	"t3FrontendUserId": {
+		"prefix": "t3FrontendUserId",
+		"body": [
+			"[frontend.user.userId == ${1:4}]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nTrue if user uid of current logged in user is equal to 4"
+	},
+	"t3FrontendUserGroupList": {
+		"prefix": "t3FrontendUserGroupList",
+		"body": [
+			"[like(\",\"~frontend.user.userGroupList~\",\", \"*,${1:1},*\")]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nComma list of group UIDs"
+	},
+	"t3Typo3Version": {
+		"prefix": "t3Typo3Version",
+		"body": [
+			"[typo3.version == \"${1:9.5.7}\"]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nTYPO3_version (e.g. 9.5.0-dev)"
+	},
+	"t3Typo3Branch": {
+		"prefix": "t3Typo3Branch",
+		"body": [
+			"[typo3.branch == \"${1:9.5}\"]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nTYPO3_branch (e.g. 9.5)"
+	},
+	"t3Typo3DevIpMask": {
+		"prefix": "t3Typo3DevIpMask",
+		"body": [
+			"[typo3.devIpMask == \"${1:172.1.15.55}\"]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nLike this $GLOBALS['TYPO3_CONF_VARS']['SYS']['devIPmask']"
+	},
+	"t3RequestGetQueryParams": {
+		"prefix": "t3RequestGetQueryParams",
+		"body": [
+			"# Example: ..domain.tld/word/?token=712438135648378",
+			"[request.getQueryParams()['${1:token}'] == ${2:712438135648378}]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nAllows to access all available GET-Parameters from current request."
+	},
+	"t3RequestGetParsedBody": {
+		"prefix": "t3RequestGetParsedBody",
+		"body": [
+			"[request.getParsedBody()['${1:foo}'] == ${2:1}]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nProvides all values contained in the request body, e.g. in case of submitted form via POST, the submitted values."
+	},
+	"t3RequestGetHeaders": {
+		"prefix": "t3RequestGetHeaders",
+		"body": [
+			"[request.getHeaders()['${1:Accept}'] == '${2:json}']",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nProvides all values from request headers."
+	},
+	"t3RequestGetCookieParams": {
+		"prefix": "t3RequestGetCookieParams",
+		"body": [
+			"[request.getCookieParams()['${1:foo}'] == ${2:1}]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nProvides all available cookies."
+	},
+	"t3RequestGetNormalizedParams": {
+		"prefix": "t3RequestGetNormalizedParams",
+		"body": [
+			"[request.getNormalizedParams().${1:isHttps()}]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nProvides access to NormalizedParams object which contains a bunch of methods: (please look into the documentation)"
+	},
+	"t3Date": {
+		"prefix": "t3Date",
+		"body": [
+			"[date(\"${1:w}\") == ${2:7}]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nGet current date in given format.\nSee PHP date function as reference for possible usage. (https://www.php.net/manual/en/function.date.php)"
+	},
+	"t3Like": {
+		"prefix": "t3Like",
+		"body": [
+			"[like(\"${1:fooBarBaz}\", \"${2:*Bar*}\")]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nThis function has two parameters: The first parameter(Is the string to search in) and The second parameter (Is the search string)"
+	},
+	"t3Ip": {
+		"prefix": "t3Ip",
+		"body": [
+			"[ip(\"${1:172.18.*}\")]",
+			"\t${2:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nValue or Constraint, Wildcard or RegExp possible special value: devIP (match the devIPMask)."
+	},
+	"t3CompatVersion": {
+		"prefix": "t3CompatVersion",
+		"body": [
+			"[compatVersion(\"${1:9.5}\")]",
+			"\t${2:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nCompares against the current TYPO3 branch."
+	},
+	"t3GetTSFE": {
+		"prefix": "t3GetTSFE",
+		"body": [
+			"[getTSFE().${1:type} == ${2:98}]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nProvides access to TypoScriptFrontendController ($GLOBALS['TSFE'])"
+	},
+	"t3Getenv": {
+		"prefix": "t3Getenv",
+		"body": [
+			"[getenv(\"${1:VIRTUAL_HOST}\") == \"${2:docs.typo3.org}\"]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nPHP function: getenv ()https://www.php.net/manual/en/function.getenv.php"
+	},
+	"t3Feature": {
+		"prefix": "t3Feature",
+		"body": [
+			"[feature(\"${1:TypoScript.strictSyntax}\") === ${2:false}]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nProvides access to feature toggles current state.\nCheck if feature toggle for strict TypoScript syntax is enabled:"
+	},
+	"t3Usergroup": {
+		"prefix": "t3Usergroup",
+		"body": [
+			"[usergroup(\"${1:12,15,18}\")]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nValue or constraint, wildcard or RegExp possible\nAllows to check whether current user (FE or BE) is part of the expected usergroup."
+	},
+	"t3Session": {
+		"prefix": "t3Session",
+		"body": [
+			"[session(\"${1:foo|bar}\") == ${2:1234567}]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nAllows to access values of the current session. Available values depend on values written to the session, e.g. by extensions.\n\nUse | to dig deeper into the structure for stored values."
+	},
+	"t3Site": {
+		"prefix": "t3Site",
+		"body": [
+			"[site(\"${1:foo|identifier}\") == \"${2:foo|typo395}\"]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nValue or constraint, wildcard or RegExp possible\nAllows to check whether current user (FE or BE) is part of the expected usergroup."
+	},
+	"t3SiteLanguage": {
+		"prefix": "t3SiteLanguage",
+		"body": [
+			"[siteLanguage(\"${1:locale}\") == \"${2:de_CH}\"]",
+			"\t${3:...do some magic...}",
+			"[GLOBAL]$0"
+		], 
+		"description": "TYPO3 9+ Condition \n--------------------------\nGet value from siteLanguage configuration, or null if no site was found or property not exists."
+	},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	"t3OldConLanguage": {
+		"prefix": "t3OldConLanguage",
 		"body": [
 			"[language = $1, $2, ...]",
 			"$3",
 			"[END]"
 		], 
-		"description": "TYPO3 Condition | [language = lang1, lang2, ...]"
+		"description": "OLD (<8) - TYPO3 Condition | [language = lang1, lang2, ...]"
 	},
-	"t3ConIP": {
-		"prefix": "t3ConIP",
+	"t3OldConIP": {
+		"prefix": "t3OldConIP",
 		"body": [
 			"[IP = $1, $2]",
 			"$3",
 			"[END]"
 		], 
-		"description": "TYPO3 Condition | [IP = 192.168.0.0, 192.168.0.0]"
+		"description": "OLD (<8) - TYPO3 Condition | [IP = 192.168.0.0, 192.168.0.0]"
 	},
-	"t3ConHostname": {
-		"prefix": "t3ConHostname",
+	"t3OldConHostname": {
+		"prefix": "t3OldConHostname",
 		"body": [
 			"[hostname = $1, $2, ...]",
 			"$3",
 			"[END]"
 		], 
-		"description": "TYPO3 Condition | [hostname = *.example.com, myhost.*.com]"
+		"description": "OLD (<8) - TYPO3 Condition | [hostname = *.example.com, myhost.*.com]"
 	},
-	"t3ConApplicationContext": {
-		"prefix": "t3ConApplicationContext",
+	"t3OldConApplicationContext": {
+		"prefix": "t3OldConApplicationContext",
 		"body": [
 			"[applicationContext = $1, $2, ...]",
 			"$3",
 			"[END]"
 		], 
-		"description": "TYPO3 Condition | [applicationContext = context1, context2, ...]"
+		"description": "OLD (<8) - TYPO3 Condition | [applicationContext = context1, context2, ...]"
 	},
-	"t3ConHour": {
-		"prefix": "t3ConHour",
+	"t3OldConHour": {
+		"prefix": "t3OldConHour",
 		"body": [
 			"[hour = $1, > $2, < $3, ...]",
 			"$3",
 			"[END]"
 		], 
-		"description": "TYPO3 Condition | [hour = hour1, > hour2, < hour3, ...]"
+		"description": "OLD (<8) - TYPO3 Condition | [hour = hour1, > hour2, < hour3, ...]"
 	},
-	"t3ConMinute": {
-		"prefix": "t3ConMinute",
+	"t3OldConMinute": {
+		"prefix": "t3OldConMinute",
 		"body": [
 			"[minute = $1, > $2, < $3, ...]",
 			"$3",
 			"[END]"
 		], 
-		"description": "TYPO3 Condition | [minute = minute, > minute, < minute, ...]"
+		"description": "OLD (<8) - TYPO3 Condition | [minute = minute, > minute, < minute, ...]"
 	},
-	"t3ConYear": {
-		"prefix": "t3ConYear",
+	"t3OldConYear": {
+		"prefix": "t3OldConYear",
 		"body": [
 			"[year  = $1, > $2, < $3, ...]",
 			"$3",
 			"[END]"
 		], 
-		"description": "TYPO3 Condition | [year  = year , > year , < year , ...]"
+		"description": "OLD (<8) - TYPO3 Condition | [year  = year , > year , < year , ...]"
 	},
-	"t3ConDayofweek": {
-		"prefix": "t3ConDayofweek",
+	"t3OldConDayofweek": {
+		"prefix": "t3OldConDayofweek",
 		"body": [
 			"[dayofweek   = $1, > $2, < $3, ...]",
 			"$3",
 			"[END]"
 		], 
-		"description": "TYPO3 Condition | [dayofweek  = dayofweek , > dayofweek , < dayofweek  , ...]"
+		"description": "OLD (<8) - TYPO3 Condition | [dayofweek  = dayofweek , > dayofweek , < dayofweek  , ...]"
 	},
-	"t3ConDayofyear": {
-		"prefix": "t3ConDayofyear",
+	"t3OldConDayofyear": {
+		"prefix": "t3OldConDayofyear",
 		"body": [
 			"[dayofyear    = $1, > $2, < $3, ...]",
 			"$3",
 			"[END]"
 		], 
-		"description": "TYPO3 Condition | [dayofyear = dayofyear , > dayofyear , < dayofyear , ...]"
+		"description": "OLD (<8) - TYPO3 Condition | [dayofyear = dayofyear , > dayofyear , < dayofyear , ...]"
 	},
-	"t3ConUsergroup": {
-		"prefix": "t3ConUsergroup",
+	"t3OldConUsergroup": {
+		"prefix": "t3OldConUsergroup",
 		"body": [
 			"[usergroup = $1, $2]",
 			"$3",
 			"[END]"
 		], 
-		"description": "TYPO3 Condition | [usergroup = group1-uid, group2-uid, ...]"
+		"description": "OLD (<8) - TYPO3 Condition | [usergroup = group1-uid, group2-uid, ...]"
 	},
-	"t3ConLogin": {
-		"prefix": "t3ConLogin",
+	"t3OldConLogin": {
+		"prefix": "t3OldConLogin",
 		"body": [
 			"[loginUser = $1, $2]",
 			"$3",
 			"[END]"
 		], 
-		"description": "TYPO3 Condition | [loginUser = fe_users-uid, fe_users-uid, ...]"
+		"description": "OLD (<8) - TYPO3 Condition | [loginUser = fe_users-uid, fe_users-uid, ...]"
 	},
-	"t3ConUserfunc": {
-		"prefix": "t3ConUserfunc",
+	"t3OldConUserfunc": {
+		"prefix": "t3OldConUserfunc",
 		"body": [
 			"[userFunc = user_function($1, $2, ...)]",
 			"$3",
 			"[END]"
 		], 
-		"description": "TYPO3 Condition | [userFunc = user_function(argument1, argument2, ...)]"
+		"description": "OLD (<8) - TYPO3 Condition | [userFunc = user_function(argument1, argument2, ...)]"
 	},
-	"t3ConPage": {
-		"prefix": "t3ConPage",
+	"t3OldConPage": {
+		"prefix": "t3OldConPage",
 		"body": [
 			"[page|$1 = $2]",
 			"$3",
 			"[END]"
 		], 
-		"description": "TYPO3 Condition | [page|field = value]"
+		"description": "OLD (<8) - TYPO3 Condition | [page|field = value]"
 	},
-	"t3ConTreelevel": {
-		"prefix": "t3ConTreelevel",
+	"t3OldConTreelevel": {
+		"prefix": "t3OldConTreelevel",
 		"body": [
 			"[treeLevel = $1, $2, ...]",
 			"$3",
 			"[END]"
 		], 
-		"description": "TYPO3 Condition | [treeLevel = levelnumber, levelnumber, ...]"
+		"description": "OLD (<8) - TYPO3 Condition | [treeLevel = levelnumber, levelnumber, ...]"
 	},
-	"t3ConPIDinRootline": {
-		"prefix": "t3ConPIDinRootline",
+	"t3OldConPIDinRootline": {
+		"prefix": "t3OldConPIDinRootline",
 		"body": [
 			"[PIDinRootline  = $1, $2, ...]",
 			"$3",
 			"[END]"
 		], 
-		"description": "TYPO3 Condition | [PIDinRootline = pages-uid, pages-uid, ...]"
+		"description": "OLD (<8) - TYPO3 Condition | [PIDinRootline = pages-uid, pages-uid, ...]"
 	},
-	"t3ConPIDupinRootline ": {
-		"prefix": "t3ConPIDupinRootline",
+	"t3OldConPIDupinRootline ": {
+		"prefix": "t3OldConPIDupinRootline",
 		"body": [
 			"[PIDupinRootline = $1, $2, ...]",
 			"$3",
 			"[END]"
 		], 
-		"description": "TYPO3 Condition | [PIDupinRootline = pages-uid, pages-uid, ...]"
+		"description": "OLD (<8) - TYPO3 Condition | [PIDupinRootline = pages-uid, pages-uid, ...]"
 	},
-	"t3ConCompatversion": {
-		"prefix": "t3ConCompatversion",
+	"t3OldConCompatversion": {
+		"prefix": "t3OldConCompatversion",
 		"body": [
 			"[compatVersion = $1.$2.$3]",
 			"$4",
 			"[END]"
 		], 
-		"description": "TYPO3 Condition | [compatVersion = x.y.z]"
+		"description": "OLD (<8) - TYPO3 Condition | [compatVersion = x.y.z]"
 	},
-	"t3ConGvarId": {
-		"prefix": "t3ConGvarId",
+	"t3OldConGvarId": {
+		"prefix": "t3OldConGvarId",
 		"body": [
 			"[globalVar = TSFE:id = $1|$2]",
 			"$3",
 			"[GLOBAL]"
 		], 
-		"description": "TYPO3 Condition | [globalVar = TSFE:id = page_uid|page_uid|page_uid]"
+		"description": "OLD (<8) - TYPO3 Condition | [globalVar = TSFE:id = page_uid|page_uid|page_uid]"
 	},
-	"t3ConGvarPage": {
-		"prefix": "t3ConGvarPage",
+	"t3OldConGvarPage": {
+		"prefix": "t3OldConGvarPage",
 		"body": [
 			"[globalVar = TSFE:$1|$2 = $3]",
 			"$4",
 			"[GLOBAL]"
 		], 
-		"description": "TYPO3 Condition | [globalVar = TSFE:page|layout = 1]"
+		"description": "OLD (<8) - TYPO3 Condition | [globalVar = TSFE:page|layout = 1]"
 	},
-	"t3ConGvarGP": {
-		"prefix": "t3ConGvarGP",
+	"t3OldConGvarGP": {
+		"prefix": "t3OldConGvarGP",
 		"body": [
 			"[globalVar = GP:$1 = $3]",
 			"$4",
 			"[GLOBAL]"
 		], 
-		"description": "TYPO3 Condition | [globalVar = GP:print > 0]"
+		"description": "OLD (<8) - TYPO3 Condition | [globalVar = GP:print > 0]"
 	},
-	"t3ConGvarLit": {
-		"prefix": "t3ConGvarLit",
+	"t3OldConGvarLit": {
+		"prefix": "t3OldConGvarLit",
 		"body": [
 			"[globalVar = LIT:1 = $1]",
 			"$2",
 			"[GLOBAL]"
 		], 
-		"description": "TYPO3 Condition | [globalVar = LIT:1 = {$constant_to_turnSomethingOn}]"
+		"description": "OLD (<8) - TYPO3 Condition | [globalVar = LIT:1 = {$constant_to_turnSomethingOn}]"
 	},
-	"t3ConGvarconstant": {
-		"prefix": "t3ConGvarconstant",
+	"t3OldConGvarconstant": {
+		"prefix": "t3OldConGvarconstant",
 		"body": [
 			"[globalVar = LIT:1 = $1]",
 			"$2",
 			"[GLOBAL]"
 		], 
-		"description": "TYPO3 Condition | [globalVar = LIT:1 = {$constant_to_turnSomethingOn}]"
+		"description": "OLD (<8) - TYPO3 Condition | [globalVar = LIT:1 = {$constant_to_turnSomethingOn}]"
 	},
-	"t3ConGvarBELogin": {
-		"prefix": "t3ConGvarBELogin",
+	"t3OldConGvarBELogin": {
+		"prefix": "t3OldConGvarBELogin",
 		"body": [
 			"[globalVar = TSFE:beUserLogin = 1]",
 			"$1",
 			"[GLOBAL]"
 		], 
-		"description": "TYPO3 Condition | [globalVar = TSFE:beUserLogin = 1]"
+		"description": "OLD (<8) - TYPO3 Condition | [globalVar = TSFE:beUserLogin = 1]"
 	},
-	"t3ConGvarBEuser": {
-		"prefix": "t3ConGvarBEuser",
+	"t3OldConGvarBEuser": {
+		"prefix": "t3OldConGvarBEuser",
 		"body": [
 			"[globalVar = BE_USER|user|uid = $1]",
 			"$2",
 			"[GLOBAL]"
 		], 
-		"description": "TYPO3 Condition | [globalVar = BE_USER|user|uid = 13]"
+		"description": "OLD (<8) - TYPO3 Condition | [globalVar = BE_USER|user|uid = 13]"
 	},
-	"t3ConGStringHost": {
-		"prefix": "t3ConGStringHost",
+	"t3OldConGStringHost": {
+		"prefix": "t3OldConGStringHost",
 		"body": [
 			"[globalString = IENV:HTTP_HOST = $1]",
 			"$2",
 			"[GLOBAL]"
 		], 
-		"description": "TYPO3 Condition | [globalString = IENV:HTTP_HOST = www.typo3.org]"
+		"description": "OLD (<8) - TYPO3 Condition | [globalString = IENV:HTTP_HOST = www.typo3.org]"
 	},
-	"t3ConGStringReferer": {
-		"prefix": "t3ConGStringReferer",
+	"t3OldConGStringReferer": {
+		"prefix": "t3OldConGStringReferer",
 		"body": [
 			"[globalString = IENV:IENV:HTTP_REFERER  = $1]",
 			"$2",
 			"[GLOBAL]"
 		], 
-		"description": "TYPO3 Condition | [globalString = IENV:IENV:HTTP_REFERER  = /^$/]"
+		"description": "OLD (<8) - TYPO3 Condition | [globalString = IENV:IENV:HTTP_REFERER  = /^$/]"
 	},
-	"t3ConGString": {
-		"prefix": "t3ConGString",
+	"t3OldConGString": {
+		"prefix": "t3OldConGString",
 		"body": [
 			"[globalString = TSFE:$1|$2 = $3]",
 			"$4",
 			"[GLOBAL]"
 		], 
-		"description": "TYPO3 Condition | [globalString = TSFE:page|layout = 1]"
+		"description": "OLD (<8) - TYPO3 Condition | [globalString = TSFE:page|layout = 1]"
 	}
 	
 }

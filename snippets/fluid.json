@@ -1,6 +1,319 @@
 {
-	"t3FluidLinkAction": {
-		"prefix": "t3FluidLinkAction",
+
+	"t3FluidForm": {
+		"prefix": "t3FluidForm",
+		"body": [
+			"<f:form action=\"${1:...}\" controller=\"${2:...}\" package=\"${3:...}\" enctype=\"multipart/form-data\">",
+			"${4:YourFieldHere!}",
+			"</f:form>$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nForm ViewHelper. Generates a <form> Tag."
+	},
+	"t3FluidFormSelect": {
+		"prefix": "t3FluidFormSelect",
+		"body": [
+			"<f:form.select name=\"${1:propertyName}\" options=\"${2:{ObjectOrArray}}\" optionValueField=\"${3:uid}\" optionLabelField=\"${4:firstName}\" prependOptionLabel=\"${5: }\"/>$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\n This ViewHelper generates a <select> dropdown list for the use with a form."
+	},
+	"t3FluidFormButtonSubmit": {
+		"prefix": "t3FluidFormButtonSubmit",
+		"body": [
+			"<f:form.button>${1:Submit}</f:form.button>$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\n Creates a submit button."
+	},
+	"t3FluidFormButtonReset": {
+		"prefix": "t3FluidFormButtonReset",
+		"body": [
+			"<f:form.button type=\"reset\">${1:Reset}</f:form.button>$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\n Creates a reset button."
+	},
+	"t3FluidFormCheckbox": {
+		"prefix": "t3FluidFormCheckbox",
+		"body": [
+			"<f:form.checkbox name=\"${1:myCheckBox}\" value=\"${2:someValue}\" />$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\n ViewHelper which creates a simple checkbox."
+	},
+	"t3FluidFormRadio": {
+		"prefix": "t3FluidFormRadio",
+		"body": [
+			"<f:form.radio name=\"${1:myRadioButton}\" value=\"${2:someValue}\" />$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\n ViewHelper which creates a simple radio."
+	},
+	"t3FluidFormHidden": {
+		"prefix": "t3FluidFormHidden",
+		"body": [
+			"<f:form.hidden name=\"${1:myHiddenValue}\" value=\"${2:42}\" />$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\n Renders an <input type=\"hidden\" ...> tag.."
+	},
+	"t3FluidFormPassword": {
+		"prefix": "t3FluidFormPassword",
+		"body": [
+			"<f:form.password name=\"${1:myPassword}\" />$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nViewHelper which creates a simple Password Text Box <input type=\"password\" ...> tag.."
+	},
+	"t3FluidFormSubmit": {
+		"prefix": "t3FluidFormSubmit",
+		"body": [
+			"<f:form.submit value=\"${2:Send Mail}\" />$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\n Creates a submit button."
+	},
+	"t3FluidFormTextarea": {
+		"prefix": "t3FluidFormTextarea",
+		"body": [
+			"<f:form.textarea name=\"${1:myTextArea}\" value=\"${2:This is shown inside the textarea}\" />$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\n Generates an <textarea>.\nThe value of the text area needs to be set via the value attribute, as with all other form ViewHelpers."
+	},
+	"t3FluidFormTextfield": {
+		"prefix": "t3FluidFormTextfield",
+		"body": [
+			"<f:form.textfield name=\"${1:myTextBox}\" value=\"${2:default value}\" />$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\n ViewHelper which creates a text field <input type=\"text\">"
+	},
+	"t3FluidFormUpload": {
+		"prefix": "t3FluidFormUpload",
+		"body": [
+			"<f:form.upload name=\"${1:file}\" />$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\n A ViewHelper which generates an <input type=\"file\"> HTML element. Make sure to set enctype=\"multipart/form-data\" on the form!"
+	},
+	"t3FluidFormValidationResults": {
+		"prefix": "t3FluidFormValidationResults",
+		"body": [
+			"<f:if condition=\"{validationResults.flattenedErrors}\">",
+			"\t<ul class=\"errors\">",
+			"\t\t<f:for each=\"{validationResults.flattenedErrors}\" as=\"errors\" key=\"propertyPath\">",
+			"\t\t\t<li>{propertyPath}",
+			"\t\t\t\t<ul>",
+			"\t\t\t\t\t<f:for each=\"{errors}\" as=\"error\">",
+			"\t\t\t\t\t\t<li>{error.code}: {error}</li>",
+			"\t\t\t\t\t</f:for>",
+			"\t\t\t\t</ul>",
+			"\t\t\t</li>",
+			"\t\t</f:for>",
+			"\t</ul>",
+			"</f:if>",
+			"</f:form.validationResults>$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\n A ViewHelper which generates an <input type=\"file\"> HTML element. Make sure to set enctype=\"multipart/form-data\" on the form!"
+	},
+
+	"t3FluidFormatBytes": {
+		"prefix": "t3FluidFormatBytes",
+		"body": [
+			"<f:format.bytes value=\"${1:{fileSize}}\" decimals=\"${2:2}\" decimalSeparator=\"${3:.}\" thousandsSeparator=\"${4:,}\" />$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\n Formats an integer with a byte count into human readable form."
+	},
+	"t3FluidFormatBytesInline": {
+		"prefix": "t3FluidFormatBytesInline",
+		"body": [
+			"{${1:fileSize} -> f:format.bytes(decimals: ${2:2}, decimalSeparator: '${3:.}', thousandsSeparator: '${4:,}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\n Formats an integer with a byte count into human readable form."
+	},
+
+	"t3FluidFormatCase": {
+		"prefix": "t3FluidFormatCase",
+		"body": [
+			"<f:format.case mode=\"${1:capital}\" >${2:Some Text with miXed case}</f:format.case>$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\n Modifies the case of an input string to upper- or lowercase or capitalization. The default transformation will be uppercase as in mb_convert_case."
+	},
+	"t3FluidFormatCaseInline": {
+		"prefix": "t3FluidFormatCaseInline",
+		"body": [
+			"{${1:longtextAsVariable} -> f:format.case(mode: ${2:'capital'})}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\n Modifies the case of an input string to upper- or lowercase or capitalization. The default transformation will be uppercase as in mb_convert_case."
+	},
+
+	"t3FluidFormatCrop": {
+		"prefix": "t3FluidFormatCrop",
+		"body": [
+			"<f:format.crop maxCharacters=\"${1:10}\" >${2:This is some very long text}</f:format.crop>$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nUse this ViewHelper to crop the text between its opening and closing tags."
+	},
+	"t3FluidFormatCropInline": {
+		"prefix": "t3FluidFormatCropInline",
+		"body": [
+			"{${1:longtextAsVariable} -> f:format.crop(maxCharacters: ${2:10})}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nUse this ViewHelper to crop the text between its opening and closing tags."
+	},
+
+	"t3FluidFormatCurrency": {
+		"prefix": "t3FluidFormatCurrency",
+		"body": [
+			"<f:format.currency decimalSeparator=\"${1:.}\" thousandsSeparator=\"${2:,}\" currencySign=\"${3:€}\">${4:54321}</f:format.currency>$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nFormats a given float to a currency representation."
+	},
+	"t3FluidFormatCurrencyInline": {
+		"prefix": "t3FluidFormatCurrencyInline",
+		"body": [
+			"{${1:54321} -> f:format.currency(decimalSeparator: '${2:,}', thousandsSeparator: '${3:,}', currencySign: '${4:€}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nFormats a given float to a currency representation."
+	},
+
+	"t3FluidFormatDate": {
+		"prefix": "t3FluidFormatDate",
+		"body": [
+			"<f:format.date  format=\"${1:{%d. %B %Y}}\">${2:{dateObject}}</f:format.date>"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nFormats an object implementing \\DateTimeInterface."
+	},
+	"t3FluidFormatDateInline": {
+		"prefix": "t3FluidFormatDateInline",
+		"body": [
+			"{${2:dateObject} -> f:format.date(format: '${1:{%d. %B %Y}}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nFormats an object implementing \\DateTimeInterface."
+	},
+
+
+	"t3FluidFormatHtml": {
+		"prefix": "t3FluidFormatHtml",
+		"body": [
+			"<f:format.html  parseFuncTSPath=\"${1:lib.parseFunc_RTE}\">${2:foo <b>bar</b>. Some }</f:format.html>"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nRenders a string by passing it to a TYPO3 parseFunc. You can either specify a path to the TypoScript setting or set the parseFunc options directly. By default lib.parseFunc_RTE is used to parse the string."
+	},
+	"t3FluidFormatHtmlInline": {
+		"prefix": "t3FluidFormatHtmlInline",
+		"body": [
+			"{${1:someTextObject} -> f:format.html(parseFuncTSPath: '${2:lib.parseFunc_RTE}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nFormats an object implementing \\DateTimeInterface."
+	},
+
+
+	"t3FluidFormatHtmlentitiesDecode": {
+		"prefix": "t3FluidFormatHtmlentitiesDecode",
+		"body": [
+			"<f:format.htmlentitiesDecode  encoding=\"${1:ISO-8859-1}\">${2:{text}}</f:format.htmlentitiesDecode>"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nApplies html_entity_decode() to a value. See https://www.php.net/html_entity_decode."
+	},
+	"t3FluidFormatHtmlentitiesDecodeInline": {
+		"prefix": "t3FluidFormatHtmlentitiesDecodeInline",
+		"body": [
+			"{${1:someTextObject} -> f:format.htmlentitiesDecode(encoding: '${1:ISO-8859-1}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nApplies html_entity_decode() to a value. See https://www.php.net/html_entity_decode."
+	},
+
+
+	"t3FluidFormatHtmlentities": {
+		"prefix": "t3FluidFormatHtmlentities",
+		"body": [
+			"<f:format.htmlentities  encoding=\"${1:ISO-8859-1}\">${2:{text}}</f:format.htmlentities>"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nApplies htmlentities() escaping to a value. See https://www.php.net/manual/function.htmlentities.php."
+	},
+	"t3FluidFormatHtmlentitiesInline": {
+		"prefix": "t3FluidFormatHtmlentitiesInline",
+		"body": [
+			"{${1:someTextObject} -> f:format.htmlentities(encoding: '${1:ISO-8859-1}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nApplies htmlentities() escaping to a value. See https://www.php.net/manual/function.htmlentities.php."
+	},
+
+	"t3FluidFormatJson": {
+		"prefix": "t3FluidFormatJson",
+		"body": [
+			"<f:format.json>{${1:someArray}</f:format.json>"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nWrapper for PHPs json_encode function. See https://www.php.net/manual/function.json-encode.php."
+	},
+	"t3FluidFormatJsonInline": {
+		"prefix": "t3FluidFormatJsonInline",
+		"body": [
+			"{${1:someArray} -> f:format.json()}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nWrapper for PHPs json_encode function. See https://www.php.net/manual/function.json-encode.php."
+	},
+
+	"t3FluidFormatNl2br": {
+		"prefix": "t3FluidFormatNl2br",
+		"body": [
+			"<f:format.nl2br>{${1:text_with_linebreaks}</f:format.nl2br>"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nWrapper for PHPs nl2br function. See https://www.php.net/manual/function.nl2br.php."
+	},
+	"t3FluidFormatNl2brInline": {
+		"prefix": "t3FluidFormatNl2brInline",
+		"body": [
+			"{${1:text_with_linebreaks} -> f:format.nl2br()}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nWrapper for PHPs nl2br function. See https://www.php.net/manual/function.nl2br.php."
+	},
+
+	"t3FluidFormatNumber": {
+		"prefix": "t3FluidFormatNumber",
+		"body": [
+			"<f:format.number decimals=\"${1:1}\" decimalSeparator=\"${2:,}\" thousandsSeparator=\"${3:.}\">${4:423423.234}</f:format.number>$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nFormats a number with custom precision, decimal point and grouped thousands. See https://www.php.net/manual/function.number-format.php."
+	},
+	"t3FluidFormatNumberInline": {
+		"prefix": "t3FluidFormatNumberInline",
+		"body": [
+			"{${1:423423.234} -> f:format.number(decimals: '${2:1}', decimalSeparator: '${3:,}', thousandsSeparator: '${4:.}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nFormats a number with custom precision, decimal point and grouped thousands. See https://www.php.net/manual/function.number-format.php."
+	},
+
+
+
+
+	"t3FluidFormatPadding": {
+		"prefix": "t3FluidFormatPadding",
+		"body": [
+			"<f:format.padding padLength=\"${1:10}\" padString=\"${2:-=}\">${4:TYPO3}</f:format.padding>$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nFormats a string using PHPs str_pad function. See https://www.php.net/manual/function.str_pad.php."
+	},
+	"t3FluidFormatPaddingInline": {
+		"prefix": "t3FluidFormatPaddingInline",
+		"body": [
+			"{${1:TYPO3} -> f:format.padding(padLength: '${2:10}', padString: '${3:-=}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nFormats a string using PHPs str_pad function. See https://www.php.net/manual/function.str_pad.php."
+	},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	"t3OldFluidLinkAction": {
+		"prefix": "t3OldFluidLinkAction",
 		"body": [
 			"<f:link.action pageUid='$1' action: '$2' >",
 			"$3",
@@ -10,15 +323,15 @@
 			"TYPO3 Fluid | <f:link.action pageUid='42' action: 'NULL' >Link</f:link.action>"
 		]
 	},
-	"t3FluidLinkActionInline": {
-		"prefix": "t3FluidLinkActionInline",
+	"t3OldFluidLinkActionInline": {
+		"prefix": "t3OldFluidLinkActionInline",
 		"body": [
 			"{f:link.action(pageUid: $1, action: '$2')}"
 		],
 		"description": "TYPO3 Fluid inline | {f:link.action(pageUid: 42, action: 'NULL')}"
 	},
-	"t3FluidLinkEmail": {
-		"prefix": "t3FluidLinkEmail",
+	"t3OldFluidLinkEmail": {
+		"prefix": "t3OldFluidLinkEmail",
 		"body": [
 			"<f:link.email email='$1' >",
 			"$2",
@@ -28,15 +341,15 @@
 			"TYPO3 Fluid | <f:link.email email='example@example.com' >E-Mail</f:link.email>"
 		]
 	},
-	"t3FluidLinkEmailInline": {
-		"prefix": "t3FluidLinkEmailInline",
+	"t3OldFluidLinkEmailInline": {
+		"prefix": "t3OldFluidLinkEmailInline",
 		"body": [
 			"{f:link.email(email: 'foo')}"
 		],
 		"description": "TYPO3 Fluid | {TYPO3 Fluid inline | f:link.email(email: 'foo')}"
 	},
-	"t3FluidLinkExternal": {
-		"prefix": "t3FluidLinkExternal",
+	"t3OldFluidLinkExternal": {
+		"prefix": "t3OldFluidLinkExternal",
 		"body": [
 			"<f:link.external uri='$1' >",
 			"$2",
@@ -46,15 +359,15 @@
 			"TYPO3 Fluid | <f:link.external  uri='foo'>Link</f:link.external>"
 		]
 	},
-	"t3FluidLinkExternalInline": {
-		"prefix": "t3FluidLinkExternalInline",
+	"t3OldFluidLinkExternalInline": {
+		"prefix": "t3OldFluidLinkExternalInline",
 		"body": [
 			"{f:link.external(uri: '$1')}"
 		],
 		"description": "TYPO3 Fluid inline | {TYPO3 Fluid inline | f:link.external(uri: '42')}"
 	},
-	"t3FluidLinkPage": {
-		"prefix": "t3FluidLinkPage",
+	"t3OldFluidLinkPage": {
+		"prefix": "t3OldFluidLinkPage",
 		"body": [
 			"<f:link.page pageUid='$1' >",
 			"$2",
@@ -64,15 +377,15 @@
 			"TYPO3 Fluid | <f:link.page  pageUid='42'>Link</f:link.page>"
 		]
 	},
-	"t3FluidLinkPageInline": {
-		"prefix": "t3FluidLinkPageInline",
+	"t3OldFluidLinkPageInline": {
+		"prefix": "t3OldFluidLinkPageInline",
 		"body": [
 			"{f:link.page(uri: '$1')}"
 		],
 		"description": "TYPO3 Fluid inline | {TYPO3 Fluid inline | f:link.page(pageUid: '42')}"
 	},
-	"t3FluidLinkTypolink": {
-		"prefix": "t3FluidLinkTypolink",
+	"t3OldFluidLinkTypolink": {
+		"prefix": "t3OldFluidLinkTypolink",
 		"body": [
 			"<f:link.typolink parameter='$1' >",
 			"$2",
@@ -82,15 +395,15 @@
 			"TYPO3 Fluid | <f:link.typolink parameter='42'>LINK</f:link.typolink>"
 		]
 	},
-	"t3FluidLinkTypolinkInline": {
-		"prefix": "t3FluidLinkTypolinkInline",
+	"t3OldFluidLinkTypolinkInline": {
+		"prefix": "t3OldFluidLinkTypolinkInline",
 		"body": [
 			"{f:link.typolink(parameter: '$1')}"
 		],
 		"description": "TYPO3 Fluid inline | {TYPO3 Fluid inline | f:link.typolink(parameter: '42')}"
 	},
-	"t3FluidFor": {
-		"prefix": "t3FluidFor",
+	"t3OldFluidFor": {
+		"prefix": "t3OldFluidFor",
 		"body": [
 			"<f:for each='$1' as='$2' iteration='inter'>",
 			"$3",
@@ -100,33 +413,33 @@
 			"TYPO3 Fluid | <f:for each='objects' as='obj' iteration='inter'>Content</f:for>"
 		]
 	},
-	"t3FluidForInline": {
-		"prefix": "t3FluidForInline",
+	"t3OldFluidForInline": {
+		"prefix": "t3OldFluidForInline",
 		"body": [
 			"{f:for(each: {$1}, as: '$2', iteration: 'inter')}"
 		],
 		"description": "TYPO3 Fluid inline | {f:for(each: {object}, as: 'obj', iteration: 'inter')}"
 	},
-	"t3FluidAlias": {
-		"prefix": "t3FluidAlias",
+	"t3OldFluidAlias": {
+		"prefix": "t3OldFluidAlias",
 		"body": [
 			"<f:alias map=\"{$1: '$2'}\">",
-  			"$3",
+			"$3",
 			"</f:alias>"
 		],
 		"description": [
 			"TYPO3 Fluid | <f:alias map=\"{amount: '{addresses->f:count()}'}\"><p>There are {amount} records in database</p></f:alias>"
 		]
 	},
-	"t3FluidAliasInline": {
-		"prefix": "t3FluidAliasInline",
+	"t3OldFluidAliasInline": {
+		"prefix": "t3OldFluidAliasInline",
 		"body": [
 			"{f:alias(map: {$1: '$2'})}"
 		],
 		"description": "TYPO3 Fluid inline | {f:alias(map: {amount: '{addresses->f:count()}'})}"
 	},
-	"t3FluidCobject": {
-		"prefix": "t3FluidCobject",
+	"t3OldFluidCobject": {
+		"prefix": "t3OldFluidCobject",
 		"body": [
 			"<f:cObject typoscriptObjectPath=\"$1\"  data=\"$2\" currentValueKey=\"$3\" />"
 		],
@@ -134,15 +447,15 @@
 			"TYPO3 Fluid | <f:cObject typoscriptObjectPath=\"lib.typoscriptStuff\"   data=\"{article}\" currentValueKey=\"title\" />"
 		]
 	},
-	"t3FluidCobjectInline": {
-		"prefix": "t3FluidCobjectInline",
+	"t3OldFluidCobjectInline": {
+		"prefix": "t3OldFluidCobjectInline",
 		"body": [
 			"{f:cObject(typoscriptObjectPath: '$1', data: '$2', currentValueKey: '$3')}"
 		],
 		"description": "TYPO3 Fluid inline | {f:cObject(typoscriptObjectPath: 'foo', data: [mixed], currentValueKey: 'NULL')}"
 	},
-	"t3FluidComment": {
-		"prefix": "t3FluidComment",
+	"t3OldFluidComment": {
+		"prefix": "t3OldFluidComment",
 		"body": [
 			"<f:comment>$1</f:comment>"
 		],
@@ -150,15 +463,15 @@
 			"TYPO3 Fluid | <f:comment>Wooohooooo!</f:comment>"
 		]
 	},
-	"t3FluidCommentInline": {
-		"prefix": "t3FluidCommentInline",
+	"t3OldFluidCommentInline": {
+		"prefix": "t3OldFluidCommentInline",
 		"body": [
 			"{f:comment('$1')}"
 		],
 		"description": "TYPO3 Fluid inline | {f:comment('Woohooo')}"
 	},
-	"t3FluidCount": {
-		"prefix": "t3FluidCount",
+	"t3OldFluidCount": {
+		"prefix": "t3OldFluidCount",
 		"body": [
 			"<f:count>{$1}</f:count>"
 		],
@@ -166,55 +479,51 @@
 			"TYPO3 Fluid | <f:count>{addresses}</f:count>"
 		]
 	},
-	"t3FluidCountInline": {
-		"prefix": "t3FluidCountInline",
+	"t3OldFluidCountInline": {
+		"prefix": "t3OldFluidCountInline",
 		"body": [
 			"{$1 -> f:count()}"
 		],
 		"description": "TYPO3 Fluid inline | {addresses -> f:count()}"
 	},
-	"t3FluidCycle": {
-		"prefix": "t3FluidCycle",
+	"t3OldFluidCycle": {
+		"prefix": "t3OldFluidCycle",
 		"body": [
 			"<f:cycle values=\"{0: '$1', 1: '$2', 2: '$3'}\" as=\"$4\">",
-      		"	{$4}",
-    		"</f:cycle>"
+			"{$4}",
+			"</f:cycle>"
 		],
 		"description": [
-			"TYPO3 Fluid | <f:cycle values=\"{0: 'green', 1: 'red', 2: 'blue'}\" as=\"color\">
-      			{color}
-    		</f:cycle>"
+			"TYPO3 Fluid | <f:cycle values=\"{0: 'green', 1: 'red', 2: 'blue'}\" as=\"color\">{color}</f:cycle>"
 		]
 	},
-	"t3FluidCycleInline": {
-		"prefix": "t3FluidCycleInline",
+	"t3OldFluidCycleInline": {
+		"prefix": "t3OldFluidCycleInline",
 		"body": [
 			"{f:cycle(values: {$1: '$2'}, as: '$3')}"
 		],
 		"description": "TYPO3 Fluid inline | {f:cycle(values: {foo: 'bar'}, as: 'foo')}"
 	},
-	"t3FluidDebug": {
-		"prefix": "t3FluidDebug",
+	"t3OldFluidDebug": {
+		"prefix": "t3OldFluidDebug",
 		"body": [
 			"<f:debug title=\"$1\" plainText=\"1\" inline=\"0\" >",
-				"$2",
+			"$2",
 			"</f:debug>"
 		],
 		"description": [
-			"TYPO3 Fluid | <f:debug title=\"NULL\" plainText=\"1\" inline=\"0\" >
-				{object}
-			</f:debug>"
+			"TYPO3 Fluid | <f:debug title=\"NULL\" plainText=\"1\" inline=\"0\" >{object}</f:debug>"
 		]
 	},
-	"t3FluidDebugInline": {
-		"prefix": "t3FluidDebugInline",
+	"t3OldFluidDebugInline": {
+		"prefix": "t3OldFluidDebugInline",
 		"body": [
 			"{f:debug(title: '$1', plaintext: 1, inline: 1)}"
 		],
 		"description": "TYPO3 Fluid inline | {f:debug(title: 'NULL', plaintext: 1, inline: 1)}"
 	},
-	"t3FluidFlashmessages": {
-		"prefix": "t3FluidFlashmessages",
+	"t3OldFluidFlashmessages": {
+		"prefix": "t3OldFluidFlashmessages",
 		"body": [
 			"<f:flashMessages class=\"flashMessage\" />"
 		],
@@ -222,99 +531,83 @@
 			"TYPO3 Fluid | <f:flashMessages class=\"flashMessage\" />"
 		]
 	},
-	"t3FluidFlashmessagesInline": {
-		"prefix": "t3FluidFlashmessagesInline",
+	"t3OldFluidFlashmessagesInline": {
+		"prefix": "t3OldFluidFlashmessagesInline",
 		"body": [
 			"{f:flashMessages(class:'flashMessage')}"
 		],
 		"description": "TYPO3 Fluid inline | {f:debug(title: 'NULL', plaintext: 1, inline: 1)}"
 	},
-	"t3FluidGroupfor": {
-		"prefix": "t3FluidGroupfor",
+	"t3OldFluidGroupfor": {
+		"prefix": "t3OldFluidGroupfor",
 		"body": [
 			"<f:groupedFor each=\"{$1}\" as=\"$2\" groupBy=\"$3\" groupKey=\"$3\">",
-      		"	<tr>",
-			"		<th colspan=\"2\">{$3}</th>",
-			"	</tr>",
-      		"	<f:for each=\"{$2}\" as=\"$4\">",
-        	"		<tr>",
-			"			<td>{$4.first_name}</td><td>{$4.city}</td>",
-			"		</tr>"
-      		"	</f:for>",
-    		"</f:groupedFor>"
+			"\t<tr>",
+			"\t\t<th colspan=\"2\">{$3}</th>",
+			"\t</tr>",
+			"\t<f:for each=\"{$2}\" as=\"$4\">",
+			"\t\t<tr>",
+			"\t\t\t<td>{$4.first_name}</td><td>{$4.city}</td>",
+			"\t\t</tr>",
+			"\t</f:for>",
+			"</f:groupedFor>"
 		],
 		"description": [
-			"TYPO3 Fluid | <f:groupedFor each=\"{employees}\" as=\"employeesByCity\" groupBy=\"city\" groupKey=\"city\">
-      			<tr>
-					<th colspan=\"2\">{city}</th>
-				</tr>
-      			<f:for each=\"{employeesByCity}\" as=\"employee\">
-        			<tr>
-						<td>{employee.first_name}</td><td>{employee.city}</td>
-					</tr>
-      			</f:for>
-    		</f:groupedFor>"
+			"TYPO3 Fluid | <f:groupedFor each=\"{employees}\" as=\"employeesByCity\" groupBy=\"city\" groupKey=\"city\">\n\t<tr>\n\t<th colspan=\"2\">{city}</th>\t</tr><f:for each=\"{employeesByCity}\" as=\"employee\">\n\t<tr>\n\t<td>{employee.first_name}</td><td>{employee.city}</td>\n</tr>\n</f:for>\n</f:groupedFor>"
 		]
 	},
-	"t3FluidGroupforInline": {
-		"prefix": "t3FluidGroupforInline",
+	"t3OldFluidGroupforInline": {
+		"prefix": "t3OldFluidGroupforInline",
 		"body": [
 			"{f:groupedFor(each: {$1: '$2'}, as: '$1', groupBy: '$1', groupKey: '$3', groupKey'$4')}"
 		],
 		"description": "TYPO3 Fluid inline | {f:groupedFor(each: {foo: 'bar'}, as: 'foo', groupBy: 'foo', groupKey: ''groupKey'')}"
 	},
-	"t3FluidIf": {
-		"prefix": "t3FluidIf",
+	"t3OldFluidIf": {
+		"prefix": "t3OldFluidIf",
 		"body": [
 			"<f:if condition=\"$1\">",
-  			"	<f:then>",
-    		"		$2",
-			"	</f:then>",
-  			"	<f:else>",
-			"		$3",
-  			"	</f:else>",
+			"\t<f:then>",
+			"\t\t$2",
+			"\t</f:then>",
+			"\t<f:else>",
+			"\t\t$3",
+			"\t</f:else>",
 			"</f:if>"
 		],
 		"description": [
-			"TYPO3 Fluid | <f:if condition=\"{data}\">
-			<f:then>
-				This is being shown in case the condition matches.
-			</f:then>
-			<f:else>
-				This is being displayed in case the condition evaluates to FALSE.
-			</f:else>
-			</f:if>"
+			"TYPO3 Fluid | <f:if condition=\"{data}\">\n<f:then>\n\tThis is being shown in case the condition matches.\n</f:then>\n<f:else>\n\tThis is being displayed in case the condition evaluates to FALSE.\n</f:else>\n</f:if>"
 		]
 	},
-	"t3FluidIfInline": {
-		"prefix": "t3FluidIfInline",
+	"t3OldFluidIfInline": {
+		"prefix": "t3OldFluidIfInline",
 		"body": [
 			"{f:if(condition: someCondition, then: 'condition is met', else: 'condition is not met')}"
 		],
 		"description": "TYPO3 Fluid inline | {f:if(condition: someCondition, then: 'condition is met', else: 'condition is not met')}"
 	},
-	"t3FluidImageFal": {
-		"prefix": "t3FluidImageFal",
+	"t3OldFluidImageFal": {
+		"prefix": "t3OldFluidImageFal",
 		"body": [
 			"<f:if condition=\"$1\" >",
-			"	<f:image  image=\"$1\"  width=\"NULL\" height=\"NULL\" minWidth=\"NULL\" minHeight=\"NULL\" maxWidth=\"NULL\" maxHeight=\"NULL\" treatIdAsReference=\"1\" />",
+			"\t<f:image  image=\"$1\"  width=\"NULL\" height=\"NULL\" minWidth=\"NULL\" minHeight=\"NULL\" maxWidth=\"NULL\" maxHeight=\"NULL\" treatIdAsReference=\"1\" />",
 			"</f:if>"
 		],
 		"description": [
 			"TYPO3 Fluid (with IF)| <f:image  image=\"{file}\"  width=\"NULL\" height=\"NULL\" minWidth=\"NULL\" minHeight=\"NULL\" maxWidth=\"NULL\" maxHeight=\"NULL\" treatIdAsReference=\"1\" />"
 		]
 	},
-	"t3FluidImagePath": {
-		"prefix": "t3FluidImagePath",
+	"t3OldFluidImagePath": {
+		"prefix": "t3OldFluidImagePath",
 		"body": [
-			"	<f:image  image=\"$1\"  width=\"$2\" height=\"$3\" minWidth=\"$4\" minHeight=\"$5\" maxWidth=\"$6\" maxHeight=\"$7\"  alt=\"$8\" title=\"$8\" />",
+			"<f:image  image=\"$1\"  width=\"$2\" height=\"$3\" minWidth=\"$4\" minHeight=\"$5\" maxWidth=\"$6\" maxHeight=\"$7\"  alt=\"$8\" title=\"$8\" />"
 		],
 		"description": [
 			"TYPO3 Fluid | <f:image  src=\"fileadmin/content/demoimage.jpg\"  width=\"NULL\" height=\"NULL\" minWidth=\"NULL\" minHeight=\"NULL\" maxWidth=\"NULL\" maxHeight=\"NULL\" alt=\" Demo Bild\" title=\"Demo Bild\" />"
 		]
 	},
-	"t3FluidRender": {
-		"prefix": "t3FluidRender",
+	"t3OldFluidRender": {
+		"prefix": "t3OldFluidRender",
 		"body": [
 			"<f:render section=\"$1\" partial=\"$2\" arguments=\"{$3: '$4'}\" optional=\"$5\" />"
 		],
@@ -322,45 +615,40 @@
 			"TYPO3 Fluid | <f:render section=\"NULL\" partial=\"NULL\" arguments=\"{foo: 'bar'}\" optional=\"1\" />"
 		]
 	},
-	"t3FluidRenderInline": {
-		"prefix": "t3FluidRenderInline",
+	"t3OldFluidRenderInline": {
+		"prefix": "t3OldFluidRenderInline",
 		"body": [
-			"{f:render(section: '$1', partial: '$2', arguments: {$3: '$4'}, optional: $5)}",
+			"{f:render(section: '$1', partial: '$2', arguments: {$3: '$4'}, optional: $5)}"
 		],
 		"description": [
 			"TYPO3 Fluid | {f:render(section: 'NULL', partial: 'NULL', arguments: {foo: 'bar'}, optional: 1)}"
 		]
 	},
-	"t3FluidSwitch": {
-		"prefix": "t3FluidSwitch",
+	"t3OldFluidSwitch": {
+		"prefix": "t3OldFluidSwitch",
 		"body": [
 			"<f:switch expression=\"{$1}\">",
-  			"	<f:case value=\"1\">Hello Mr. {$1.lastName}</f:case>",
-  			"	<f:case value=\"2\">Hello Mrs. {$1.lastName}</f:case>",
-  			"	<f:case value=\"3\">Hello Miss {$1.lastName}</f:case>",
-  			"	<f:case default=\"TRUE\">A person with no specified gender</f:case>",
+			"\t<f:case value=\"1\">Hello Mr. {$1.lastName}</f:case>",
+			"\t<f:case value=\"2\">Hello Mrs. {$1.lastName}</f:case>",
+			"\t<f:case value=\"3\">Hello Miss {$1.lastName}</f:case>",
+			"\t<f:case default=\"TRUE\">A person with no specified gender</f:case>",
 			"</f:switch>"
 		],
 		"description": [
-			"TYPO3 Fluid | <f:switch expression=\"{person.gender}\">
-		<f:case value=\"1\">Hello Mr. {person.lastName}</f:case>
-		<f:case value=\"2\">Hello Mrs. {person.lastName}</f:case>
-		<f:case value=\"3\">Hello Miss {person.lastName}</f:case>
-		<f:case default=\"TRUE\">A person with no specified gender</f:case>
-		</f:switch>"
+			"TYPO3 Fluid | <f:switch expression=\"{person.gender}\">\n<f:case value=\"1\">Hello Mr. {person.lastName}</f:case>\n<f:case value=\"2\">Hello Mrs. {person.lastName}</f:case>\n<f:case value=\"3\">Hello Miss {person.lastName}</f:case>\n<f:case default=\"TRUE\">A person with no specified gender</f:case>\n</f:switch>"
 		]
 	},
-	"t3FluidSwitchInline": {
-		"prefix": "t3FluidSwitchInline",
+	"t3OldFluidSwitchInline": {
+		"prefix": "t3OldFluidSwitchInline",
 		"body": [
-			"{f:switch(expression: $1)}",
+			"{f:switch(expression: $1)}"
 		],
 		"description": [
 			"TYPO3 Fluid | {f:switch(expression: [mixed])}"
 		]
 	},
-	"t3FluidTranslate": {
-		"prefix": "t3FluidTranslate",
+	"t3OldFluidTranslate": {
+		"prefix": "t3OldFluidTranslate",
 		"body": [
 			"<f:translate key=\"$1\" id=\"$2\" default=\"$3\" htmlEscape=\"$4\" arguments=\"$5\" extensionName=\"$6\" />"
 		],
@@ -368,15 +656,15 @@
 			"TYPO3 Fluid | <f:translate key=\"NULL\" id=\"NULL\" default=\"NULL\" htmlEscape=\"1\" arguments=\"{foo: 'bar'}\" extensionName=\"NULL\" />"
 		]
 	},
-	"t3FluidTranslateInline": {
-		"prefix": "t3FluidTranslateInline",
+	"t3OldFluidTranslateInline": {
+		"prefix": "t3OldFluidTranslateInline",
 		"body": [
 			"{f:translate(key: '$1', id: '$2', default: '$3', htmlEscape: $4, arguments: $4, extensionName: '$5')}"
 		],
 		"description": "TYPO3 Fluid | {f:translate(key: 'NULL', id: 'NULL', default: 'NULL', htmlEscape: 1, arguments: {foo: 'bar'}, extensionName: 'NULL')}"
 	},
-	"t3FluidFormatBytes": {
-		"prefix": "t3FluidFormatBytes",
+	"t3OldFluidFormatBytes": {
+		"prefix": "t3OldFluidFormatBytes",
 		"body": [
 			"<f:format.bytes value=\"$1\" decimals=\"$2\" decimalSeparator=\".\" thousandsSeparator=\",\" />"
 		],
@@ -384,79 +672,73 @@
 			"TYPO3 Fluid | <f:format.bytes value=\"123\" decimals=\"123\" decimalSeparator=\".\" thousandsSeparator=\",\" />"
 		]
 	},
-	"t3FluidFormatBytesInline": {
-		"prefix": "t3FluidFormatBytesInline",
+	"t3OldFluidFormatBytesInline": {
+		"prefix": "t3OldFluidFormatBytesInline",
 		"body": [
 			"{f:format.bytes(value: $1, decimals: $2, decimalSeparator: ''.'', thousandsSeparator: '','')}"
 		],
 		"description": "TYPO3 Fluid | {f:format.bytes(value: 123, decimals: 123, decimalSeparator: ''.'', thousandsSeparator: '','')}"
 	},
-	"t3FluidFormatCdata": {
-		"prefix": "t3FluidFormatCdata",
+	"t3OldFluidFormatCdata": {
+		"prefix": "t3OldFluidFormatCdata",
 		"body": [
 			"<f:format.cdata>",
-			"	{data}",
+			"\t{data}",
 			"</f:format.cdata>"
 		],
 		"description": [
 			"TYPO3 Fluid | <f:format.cdata>{data}</f:format.cdata>"
 		]
 	},
-	"t3FluidFormatCdataInline": {
-		"prefix": "t3FluidFormatCdataInline",
+	"t3OldFluidFormatCdataInline": {
+		"prefix": "t3OldFluidFormatCdataInline",
 		"body": [
 			"{f:format.cdata(value: $1)}"
 		],
 		"description": "TYPO3 Fluid | {f:format.cdata(value: [mixed])}"
 	},
-	"t3FluidFormatCrop": {
-		"prefix": "t3FluidFormatCrop",
+	"t3OldFluidFormatCrop": {
+		"prefix": "t3OldFluidFormatCrop",
 		"body": [
 			"<f:format.crop maxCharacters=\"123\" append=\"...\" respectWordBoundaries=\"1\" respectHtml=\"1\">",
-			"	{data}",
+			"\t{data}",
 			"</f:format.crop>"
 		],
 		"description": [
-			"TYPO3 Fluid | <f:format.crop maxCharacters=\"123\" append=\"...\" respectWordBoundaries=\"1\" respectHtml=\"1\">
-				{data}
-			</f:format.crop>"
+			"TYPO3 Fluid | <f:format.crop maxCharacters=\"123\" append=\"...\" respectWordBoundaries=\"1\" respectHtml=\"1\">\n\t{data}\n\t</f:format.crop>"
 		]
 	},
-	"t3FluidFormatCurrency": {
-		"prefix": "t3FluidFormatCurrency",
+	"t3OldFluidFormatCurrency": {
+		"prefix": "t3OldFluidFormatCurrency",
 		"body": [
 			"<f:format.currency currencySign=\"$\" decimalSeparator=\".\" thousandsSeparator=\",\" prependCurrency=\"TRUE\" separateCurrency=\"FALSE\" decimals=\"2\">",
-			"	$1",
+			"\t$1",
 			"</f:format.currency>"
 		],
 		"description": [
-			"TYPO3 Fluid | <f:format.currency currencySign=\"$\" decimalSeparator=\".\" thousandsSeparator=\",\" prependCurrency=\"TRUE\" separateCurrency=\"FALSE\" decimals=\"2\">
-				{numbers}
-			</f:format.currency>"
+			"TYPO3 Fluid | <f:format.currency currencySign=\"$\" decimalSeparator=\".\" thousandsSeparator=\",\" prependCurrency=\"TRUE\" separateCurrency=\"FALSE\" decimals=\"2\">\n\t{numbers}\n</f:format.currency>"
 		]
 	},
-	"t3FluidFormatDate": {
-		"prefix": "t3FluidFormatDate",
+	"t3OldFluidFormatDate": {
+		"prefix": "t3OldFluidFormatDate",
 		"body": [
 			"<f:format.date format=\"H:i\">$1</f:format.date>"
 		],
 		"description": "TYPO3 Fluid inline | <f:format.date format=\"H:i\">$1</f:format.date> "
 	},
-	"t3FluidFormatHtml": {
-		"prefix": "t3FluidFormatHtml",
+	"t3OldFluidFormatHtml": {
+		"prefix": "t3OldFluidFormatHtml",
 		"body": [
 			"<f:format.html parseFuncTSPath=\"lib.parseFunc_RTE\">",
-			"	{data}",
+			"\t{data}",
 			"</f:format.html>"
 		],
 		"description": [
-			"TYPO3 Fluid | <f:format.html parseFuncTSPath=\"lib.parseFunc_RTE\">
-				{data}
-			</f:format.html>"
+			"TYPO3 Fluid | <f:format.html parseFuncTSPath=\"lib.parseFunc_RTE\">\n\t{data}\n</f:format.html>"
 		]
 	},
-	"t3FluidFormatHtmlInline": {
-		"prefix": "t3FluidFormatHtmlInline",
+	"t3OldFluidFormatHtmlInline": {
+		"prefix": "t3OldFluidFormatHtmlInline",
 		"body": [
 			"{$1->f:format.html(parseFuncTSPath: 'lib.parseFunc_RTE')}"
 		],
@@ -464,333 +746,320 @@
 			"TYPO3 Fluid | {data->f:format.html(parseFuncTSPath: 'lib.parseFunc_RTE')}"
 		]
 	},
-	"t3FluidFormatHtmlentitiesdecode": {
-		"prefix": "t3FluidFormatHtmlentitiesdecode",
+	"t3OldFluidFormatHtmlentitiesdecode": {
+		"prefix": "t3OldFluidFormatHtmlentitiesdecode",
 		"body": [
 			"<f:format.htmlentitiesDecode value=\"$1\" keepQuotes=\"$2\" encoding=\"$3\" />"
 		],
 		"description": "TYPO3 Fluid inline | <f:format.htmlentitiesDecode value=\"NULL\" keepQuotes=\"1\" encoding=\"NULL\" />"
 	},
-	"t3FluidFormatHtmlentitiesdecodeInline": {
-		"prefix": "t3FluidFormatHtmlentitiesdecodeInline",
+	"t3OldFluidFormatHtmlentitiesdecodeInline": {
+		"prefix": "t3OldFluidFormatHtmlentitiesdecodeInline",
 		"body": [
 			"{f:format.htmlentitiesDecode(value: '$1', keepQuotes: $2, encoding: '$3')}"
 		],
 		"description": "TYPO3 Fluid inline | {f:format.htmlentitiesDecode(value: 'NULL', keepQuotes: 1, encoding: 'NULL')}"
 	},
-	"t3FluidFormatHtmlentities": {
-		"prefix": "t3FluidFormatHtmlentitiesdecode",
+	"t3OldFluidFormatHtmlentities": {
+		"prefix": "t3OldFluidFormatHtmlentitiesdecode",
 		"body": [
 			"<f:format.htmlentitiesDecode value=\"$1\" keepQuotes=\"$2\" encoding=\"$3\" doubleEncode=\"1\">"
 		],
 		"description": "TYPO3 Fluid inline | <f:format.htmlentitiesDecode value=\"NULL\" keepQuotes=\"1\" encoding=\"NULL\"  doubleEncode=\"1\"/>"
 	},
-	"t3FluidFormatHtmlentitiesInline": {
-		"prefix": "t3FluidFormatHtmlentitiesdecodeInline",
+	"t3OldFluidFormatHtmlentitiesInline": {
+		"prefix": "t3OldFluidFormatHtmlentitiesdecodeInline",
 		"body": [
 			"{f:format.htmlentitiesDecode(value: '$1', keepQuotes: $2, encoding: '$3', doubleEncode: 1)}"
 		],
 		"description": "TYPO3 Fluid inline | {f:format.htmlentitiesDecode(value: 'NULL', keepQuotes: 1, encoding: 'NULL', doubleEncode:1)}"
 	},
-
-	"t3FluidFormatHtmlspecialchars": {
-		"prefix": "t3FluidFormatHtmlspecialchars",
+	"t3OldFluidFormatHtmlspecialchars": {
+		"prefix": "t3OldFluidFormatHtmlspecialchars",
 		"body": [
 			"<f:format.htmlspecialchars keepQuotes=\"1\" encoding=\"NULL\" doubleEncode=\"1\">",
-			"	$1",
+			"\t$1",
 			"</f:format.htmlspecialchars>"
 		],
-		"description": "TYPO3 Fluid inline | <f:format.htmlspecialchars keepQuotes=\"1\" encoding=\"NULL\" doubleEncode=\"1\">
-				{data}
-				</f:format.htmlspecialchars>"
+		"description": "TYPO3 Fluid inline | <f:format.htmlspecialchars keepQuotes=\"1\" encoding=\"NULL\" doubleEncode=\"1\">\n\t{data}\n</f:format.htmlspecialchars>"
 	},
-	"t3FluidFormatHtmlspecialcharsInline": {
-		"prefix": "t3FluidFormatHtmlspecialcharsInline",
+	"t3OldFluidFormatHtmlspecialcharsInline": {
+		"prefix": "t3OldFluidFormatHtmlspecialcharsInline",
 		"body": [
 			"{f:format.htmlspecialchars(value: '$1', keepQuotes: 1, encoding: 'NULL', doubleEncode: 1)}"
 		],
 		"description": "TYPO3 Fluid inline | {f:format.htmlspecialchars(value: 'NULL', keepQuotes: 1, encoding: 'NULL', doubleEncode: 1)}"
 	},
-	"t3FluidFormatNl2br": {
-		"prefix": "t3FluidFormatNl2br",
+	"t3OldFluidFormatNl2br": {
+		"prefix": "t3OldFluidFormatNl2br",
 		"body": [
 			"<f:format.nl2br value=\"$1\">"
 		],
 		"description": "TYPO3 Fluid inline | <f:format.nl2br value=\"Hello World\">"
 	},
-	"t3FluidFormatNl2brInline": {
-		"prefix": "t3FluidFormatNl2brInline",
+	"t3OldFluidFormatNl2brInline": {
+		"prefix": "t3OldFluidFormatNl2brInline",
 		"body": [
 			"{f:format.nl2br(value: '$1')}"
 		],
 		"description": "TYPO3 Fluid inline | {f:format.nl2br(value: 'Hello World')}"
 	},
-	"t3FluidFormatNumber": {
-		"prefix": "t3FluidFormatNumber",
+	"t3OldFluidFormatNumber": {
+		"prefix": "t3OldFluidFormatNumber",
 		"body": [
-			"<f:format.number decimals=\"$1\" decimalSeparator=\".\" thousandsSeparator=\",\">
-				$2
-			</f:format.number>"
+			"<f:format.number decimals=\"$1\" decimalSeparator=\".\" thousandsSeparator=\",\">\n\t$2\n</f:format.number>"
 		],
-		"description": "TYPO3 Fluid inline | <f:format.number decimals=\"123\" decimalSeparator=\".\" thousandsSeparator=\",\">
-				{numbers}
-			</f:format.number>"
+		"description": "TYPO3 Fluid inline | <f:format.number decimals=\"123\" decimalSeparator=\".\" thousandsSeparator=\",\">\n\t{numbers}\n</f:format.number>"
 	},
-	"t3FluidFormatNumberInline": {
-		"prefix": "t3FluidFormatNumberInline",
+	"t3OldFluidFormatNumberInline": {
+		"prefix": "t3OldFluidFormatNumberInline",
 		"body": [
 			"{$1->f:format.number(decimals: $2, decimalSeparator: ''.'', thousandsSeparator: '','')}"
 		],
 		"description": "TYPO3 Fluid inline | {f:format.number(decimals: 123, decimalSeparator: ''.'', thousandsSeparator: '','')}"
 	},
-	"t3FluidFormatPrintf": {
-		"prefix": "t3FluidFormatPrintf",
+	"t3OldFluidFormatPrintf": {
+		"prefix": "t3OldFluidFormatPrintf",
 		"body": [
-			"<f:format.printf arguments=\"{0: 3, 1: 'Kasper'}\">
-			%2$s is great, TYPO%1$d too. Yes, TYPO%1$d is great and so is %2$s!
-			</f:format.printf>"
+			"<f:format.printf arguments=\"{0: 3, 1: 'Kasper'}\">\n%2$s is great, TYPO%1$d too. Yes, TYPO%1$d is great and so is %2$s!\n</f:format.printf>"
 		],
-		"description": "TYPO3 Fluid inline | <f:format.printf arguments=\"{0: 3, 1: 'Kasper'}\">
-			%2$s is great, TYPO%1$d too. Yes, TYPO%1$d is great and so is %2$s!
-			</f:format.printf>"
+		"description": "TYPO3 Fluid inline | <f:format.printf arguments=\"{0: 3, 1: 'Kasper'}\">\n%2$s is great, TYPO%1$d too. Yes, TYPO%1$d is great and so is %2$s!\n</f:format.printf>"
 	},
-	"t3FluidFormatPrintfInline": {
-		"prefix": "t3FluidFormatPrintfInline",
+	"t3OldFluidFormatPrintfInline": {
+		"prefix": "t3OldFluidFormatPrintfInline",
 		"body": [
 			"{$1 -> f:format.printf(arguments: {1: '$2'})}"
 		],
 		"description": "TYPO3 Fluid inline | {someText -> f:format.printf(arguments: {1: 'TYPO3'})}"
 	},
-	"t3FluidFormatRaw": {
-		"prefix": "t3FluidFormatRaw",
+	"t3OldFluidFormatRaw": {
+		"prefix": "t3OldFluidFormatRaw",
 		"body": [
 			"<f:format.raw>$1</f:format.raw>"
 		],
 		"description": "TYPO3 Fluid inline | <f:format.raw>{string}</f:format.raw>"
 	},
-	"t3FluidFormatRawInline": {
-		"prefix": "t3FluidFormatRawInline",
+	"t3OldFluidFormatRawInline": {
+		"prefix": "t3OldFluidFormatRawInline",
 		"body": [
 			"{$1 -> f:format.raw()}"
 		],
 		"description": "TYPO3 Fluid inline | {string -> f:format.raw()}"
 	},
-	"t3FluidFormatStriptags": {
-		"prefix": "t3FluidFormatStriptags",
+	"t3OldFluidFormatStriptags": {
+		"prefix": "t3OldFluidFormatStriptags",
 		"body": [
 			"<f:format.stripTags value=\"$1\" />"
 		],
 		"description": "TYPO3 Fluid inline | <f:format.stripTags value=\"Hello<br>World\" />"
 	},
-	"t3FluidFormatStriptagsInline": {
-		"prefix": "t3FluidFormatStriptagsInline",
+	"t3OldFluidFormatStriptagsInline": {
+		"prefix": "t3OldFluidFormatStriptagsInline",
 		"body": [
 			"{f:format.stripTags(value: '$1')}"
 		],
 		"description": "TYPO3 Fluid inline | {f:format.stripTags(value: 'Hello<br>World')}"
 	},
-	"t3FluidFormatUrlencode": {
-		"prefix": "t3FluidFormatUrlencode",
+	"t3OldFluidFormatUrlencode": {
+		"prefix": "t3OldFluidFormatUrlencode",
 		"body": [
 			"<f:format.urlencode value=\"$1\" />"
 		],
 		"description": "TYPO3 Fluid inline | <f:format.urlencode value=\"http://www.freit.de\" />"
 	},
-	"t3FluidFormatUrlencodeInline": {
-		"prefix": "t3FluidFormatUrlencodeInline",
+	"t3OldFluidFormatUrlencodeInline": {
+		"prefix": "t3OldFluidFormatUrlencodeInline",
 		"body": [
 			"{f:format.urlencode(value: '$1')}"
 		],
 		"description": "TYPO3 Fluid inline | {f:format.urlencode(value: 'http://www.freit.de')}"
 	},
-	"t3FluidFormButton": {
-		"prefix": "t3FluidFormButton",
+	"t3OldFluidFormButton": {
+		"prefix": "t3OldFluidFormButton",
 		"body": [
 			"<f:form.button type=\"$2\" name=\"$3\" property=\"$4\" >",
-			"	$1",
+			"\t$1",
 			"</f:form.button>"
 		],
-		"description": "TYPO3 Fluid inline | <f:form.button type=\"submit\" name=\"NULL\" property=\"NULL\" >
-				Submit
-			</f:form.button>"
+		"description": "TYPO3 Fluid inline | <f:form.button type=\"submit\" name=\"NULL\" property=\"NULL\" >\nSubmit\n</f:form.button>"
 	},
-	"t3FluidFormButtonInline": {
-		"prefix": "t3FluidFormButtonInline",
+	"t3OldFluidFormButtonInline": {
+		"prefix": "t3OldFluidFormButtonInline",
 		"body": [
 			"{f:form.button(type: '$1', name: '$2', value: '$3', property: '$4')}"
 		],
 		"description": "TYPO3 Fluid inline | {f:form.button(type: 'submit', name: 'NULL', value: 'Submit', property: 'NULL')}"
 	},
-	"t3FluidFormCheckbox": {
-		"prefix": "t3FluidFormCheckbox",
+	"t3OldFluidFormCheckbox": {
+		"prefix": "t3OldFluidFormCheckbox",
 		"body": [
 			"<f:form.checkbox checked=\"$1\"  name=\"$2\" value=\"$3\" property=\"$4\" />"
 		],
 		"description": "TYPO3 Fluid inline | <f:form.checkbox checked=\"1\"  name=\"NULL\" value=\"foo\" property=\"NULL\" />"
 	},
-	"t3FluidFormCheckboxInline": {
-		"prefix": "t3FluidFormCheckboxInline",
+	"t3OldFluidFormCheckboxInline": {
+		"prefix": "t3OldFluidFormCheckboxInline",
 		"body": [
 			"{f:form.checkbox(checked: $1,  name: '$2', value: '$3', property: '$4')}"
 		],
 		"description": "TYPO3 Fluid inline | {f:form.checkbox(checked: 1,  name: 'NULL', value: 'foo', property: 'NULL')}"
 	},
-	"t3FluidFormHidden": {
-		"prefix": "t3FluidFormHidden",
+	"t3OldFluidFormHidden": {
+		"prefix": "t3OldFluidFormHidden",
 		"body": [
 			"<f:form.hidden name=\"$1\" value=\"$2\" property=\"$3\" />"
 		],
 		"description": "TYPO3 Fluid inline | <f:form.hidden name=\"NULL\" value=\"[mixed]\" property=\"NULL\" />"
 	},
-	"t3FluidFormHiddenInline": {
-		"prefix": "t3FluidFormHiddenInline",
+	"t3OldFluidFormHiddenInline": {
+		"prefix": "t3OldFluidFormHiddenInline",
 		"body": [
 			"{f:form.hidden(name: '$1', value: '$2', property: '$3')}"
 		],
 		"description": "TYPO3 Fluid inline | {f:form.hidden(name: 'NULL', value: 'foo', property: 'NULL')}"
 	},
-	"t3FluidFormPassword": {
-		"prefix": "t3FluidFormPassword",
+	"t3OldFluidFormPassword": {
+		"prefix": "t3OldFluidFormPassword",
 		"body": [
 			"<f:form.password name=\"$1\" value=\"$2\" property=\"$3\"  />"
 		],
 		"description": "TYPO3 Fluid inline | <f:form.password name=\"NULL\" value=\"[mixed]\" property=\"NULL\"  />"
 	},
-	"t3FluidFormPasswordInline": {
-		"prefix": "t3FluidFormPasswordInline",
+	"t3OldFluidFormPasswordInline": {
+		"prefix": "t3OldFluidFormPasswordInline",
 		"body": [
 			"{f:form.password(name: '$1', value: $2, property: '$3')}"
 		],
 		"description": "TYPO3 Fluid inline | {f:form.password(name: 'NULL', value: [mixed], property: 'NULL')}"
 	},
-	"t3FluidFormRadio": {
-		"prefix": "t3FluidFormRadio",
+	"t3OldFluidFormRadio": {
+		"prefix": "t3OldFluidFormRadio",
 		"body": [
 			"<f:form.radio checked=\"1\" name=\"NULL\" value=\"foo\" property=\"NULL\" />"
 		],
 		"description": "TYPO3 Fluid inline | <f:form.radio checked=\"1\" name=\"NULL\" value=\"foo\" property=\"NULL\" />"
 	},
-	"t3FluidFormRadioInline": {
-		"prefix": "t3FluidFormRadioInline",
+	"t3OldFluidFormRadioInline": {
+		"prefix": "t3OldFluidFormRadioInline",
 		"body": [
 			"{f:form.radio(checked: $1, name: '$2', value: '$3', property: '$4')}"
 		],
 		"description": "TYPO3 Fluid inline | {f:form.radio(checked: 1, name: 'NULL', value: 'foo', property: 'NULL')}"
 	},
-	"t3FluidFormTextarea": {
-		"prefix": "t3FluidFormTextarea",
+	"t3OldFluidFormTextarea": {
+		"prefix": "t3OldFluidFormTextarea",
 		"body": [
 			"<f:form.textarea name=\"$1\" property=\"$2\" rows=\"$3\" cols=\"$4\"></f:form.textarea>"
 		],
 		"description": "TYPO3 Fluid inline | <f:form.textarea name=\"NULL\" property=\"NULL\" rows=\"[anySimpleType]\" cols=\"[anySimpleType]\"></f:form.textarea>"
 	},
-	"t3FluidFormTextfield": {
-		"prefix": "t3FluidFormTextfield",
+	"t3OldFluidFormTextfield": {
+		"prefix": "t3OldFluidFormTextfield",
 		"body": [
 			"<f:form.textfield type=\"text\" name=\"$1\" value=\"$2\" property=\"$3\"  />"
 		],
 		"description": "TYPO3 Fluid inline | <f:form.textfield type=\"text\" name=\"NULL\" value=\"[mixed]\" property=\"NULL\"  />"
 	},
-	"t3FluidFormTextfieldInline": {
-		"prefix": "t3FluidFormTextfieldInline",
+	"t3OldFluidFormTextfieldInline": {
+		"prefix": "t3OldFluidFormTextfieldInline",
 		"body": [
 			"{f:form.textfield(type: 'text, name: '$1', value: '$2', property: '$3')}"
 		],
 		"description": "TYPO3 Fluid inline | {f:form.textfield(type: 'text, name: 'NULL', value: [mixed], property: 'NULL')}"
 	},
-	"t3FluidFormUpload": {
-		"prefix": "t3FluidFormUpload",
+	"t3OldFluidFormUpload": {
+		"prefix": "t3OldFluidFormUpload",
 		"body": [
 			"<f:form.upload name=\"$1\" value=\"$2\" property=\"$3\" multiple=\"$4\"  />"
 		],
 		"description": "TYPO3 Fluid inline | <f:form.upload name=\"NULL\" property=\"NULL\" multiple=\"NULL\" />"
 	},
-	"t3FluidFormUploadInline": {
-		"prefix": "t3FluidFormUploadInline",
+	"t3OldFluidFormUploadInline": {
+		"prefix": "t3OldFluidFormUploadInline",
 		"body": [
 			"{f:form.upload(name: '$1', property: '$3', multiple: '$4')}"
 		],
 		"description": "TYPO3 Fluid inline | {f:form.upload(name: 'NULL', property: 'NULL', multiple: '1')}"
 	},
-	"t3FluidUriAction": {
-		"prefix": "t3FluidUriAction",
+	"t3OldFluidUriAction": {
+		"prefix": "t3OldFluidUriAction",
 		"body": [
 			"<f:uri.action action=\"$1\" pageUid=\"$2\"  />"
 		],
 		"description": "TYPO3 Fluid inline | <f:uri.action action=\"NULL\" pageUid=\"123\"  />"
 	},
-	"t3FluidUriActionInline": {
-		"prefix": "t3FluidUriActionInline",
+	"t3OldFluidUriActionInline": {
+		"prefix": "t3OldFluidUriActionInline",
 		"body": [
 			"{f:uri.action(action: '$1', pageUid: $2}"
 		],
 		"description": "TYPO3 Fluid inline | {f:uri.action(action: 'NULL', pageUid: 123}"
 	},
-	"t3FluidUriEmail": {
-		"prefix": "t3FluidUriEmail",
+	"t3OldFluidUriEmail": {
+		"prefix": "t3OldFluidUriEmail",
 		"body": [
 			"<f:uri.email email=\"$1\">"
 		],
 		"description": "TYPO3 Fluid inline | <f:uri.email email=\"foo\">"
 	},
-	"t3FluidUriEmailInline": {
-		"prefix": "t3FluidUriEmailInline",
+	"t3OldFluidUriEmailInline": {
+		"prefix": "t3OldFluidUriEmailInline",
 		"body": [
 			"{f:uri.email(email: '$1')}"
 		],
 		"description": "TYPO3 Fluid inline | {f:uri.email(email: 'mail@example.net')}"
 	},
-	"t3FluidUriExternal": {
-		"prefix": "t3FluidUriExternal",
+	"t3OldFluidUriExternal": {
+		"prefix": "t3OldFluidUriExternal",
 		"body": [
 			"<f:uri.external uri=\"$1\" defaultScheme=\"http\" />"
 		],
 		"description": "TYPO3 Fluid inline | <f:uri.external uri=\"freit.de\" defaultScheme=\"http\" />"
 	},
-	"t3FluidUriExternalInline": {
-		"prefix": "t3FluidUriExternalInline",
+	"t3OldFluidUriExternalInline": {
+		"prefix": "t3OldFluidUriExternalInline",
 		"body": [
 			"{f:uri.external(uri: 'foo', defaultScheme: ''http'')}"
 		],
 		"description": "TYPO3 Fluid inline | {f:uri.external(uri: '$1', defaultScheme: 'http')}"
 	},
-	"t3FluidUriImage": {
-		"prefix": "t3FluidUriImage",
+	"t3OldFluidUriImage": {
+		"prefix": "t3OldFluidUriImage",
 		"body": [
 			"<f:uri.image src=\"$1\" image=\"$1\" width=\"$1\" height=\"$1\" treatIdAsReference=\"1\" />"
 		],
 		"description": "TYPO3 Fluid inline | <f:uri.image src=\"NULL\" image=\"[anySimpleType]\" width=\"NULL\" height=\"NULL\" treatIdAsReference=\"1\" />"
 	},
-	"t3FluidUriImageInline": {
-		"prefix": "t3FluidUriImageInline",
+	"t3OldFluidUriImageInline": {
+		"prefix": "t3OldFluidUriImageInline",
 		"body": [
 			"{f:uri.image(src: '$1', image: $2, width: '$3', height: '$4', treatIdAsReference: 1)}"
 		],
 		"description": "TYPO3 Fluid inline | {f:uri.image(src: 'NULL', image: [anySimpleType], width: 'NULL', height: 'NULL', treatIdAsReference: 1)}"
 	},
-	"t3FluidUriPage": {
-		"prefix": "t3FluidUriPage",
+	"t3OldFluidUriPage": {
+		"prefix": "t3OldFluidUriPage",
 		"body": [
 			"<f:uri.page pageUid=\"$1\"  />"
 		],
 		"description": "TYPO3 Fluid inline | <f:uri.page pageUid=\"42\"  />"
 	},
-	"t3FluidUriPageInline": {
-		"prefix": "t3FluidUriPageInline",
+	"t3OldFluidUriPageInline": {
+		"prefix": "t3OldFluidUriPageInline",
 		"body": [
 			"{f:uri.page(pageUid: $1)}"
 		],
 		"description": "TYPO3 Fluid inline | {f:uri.page(pageUid: 23)}"
 	},
-	"t3FluidUriTypolink": {
-		"prefix": "t3FluidUriTypolink",
+	"t3OldFluidUriTypolink": {
+		"prefix": "t3OldFluidUriTypolink",
 		"body": [
 			"<f:uri.typolink parameter=\"foo\" additionalParams=\"\">"
 		],
 		"description": "TYPO3 Fluid inline | <f:uri.typolink parameter=\"foo\" additionalParams=\"\">"
 	},
-	"t3FluidUriTypolinkInline": {
-		"prefix": "t3FluidUriTypolinkInline",
+	"t3OldFluidUriTypolinkInline": {
+		"prefix": "t3OldFluidUriTypolinkInline",
 		"body": [
 			"{f:uri.typolink(parameter: '$1', additionalParams: ')}"
 		],

@@ -2,9 +2,16 @@
 
 TYPO3 Code Snippet integration for Microsoft Visual Studio Code.
 
+
+[![Latest Release](https://vsmarketplacebadge.apphb.com/version-short/ralffreit.typo3snippets.svg)](https://marketplace.visualstudio.com/items?itemName=ralffreit.typo3snippets) 
+[![Installs](https://vsmarketplacebadge.apphb.com/installs/ralffreit.typo3snippets.svg)](https://marketplace.visualstudio.com/items?itemName=ralffreit.typo3snippets) 
+[![Downloads](https://vsmarketplacebadge.apphb.com/downloads/ralffreit.typo3snippets.svg)](https://marketplace.visualstudio.com/items?itemName=ralffreit.typo3snippets) 
+[![Rating](https://vsmarketplacebadge.apphb.com/rating-star/ralffreit.typo3snippets.svg)](https://marketplace.visualstudio.com/items?itemName=ralffreit.typo3snippets&ssr=false#review-details) 
+
+
 **Current status**:
-- 27 Condition Snippets
-- 0 Typoscript Snippets  (soon)
+- 27 Condition Snippets (TYPO3 <= 8)
+- 34 Condition Snippets (TYPO3 >= 9)
 - 92 Fluid Snippets
 - 0 PHP Snippets (soon)
 
@@ -16,36 +23,75 @@ We need more useful high quality snippets visit and submit on http://typo3snippe
 # Screenshot
 ![Autocomplete](https://raw.githubusercontent.com/MrSilaz/typo3snippets/master/images/snippets.png)
 
-# Snippets for Conditions
+
+# Snippets for Conditions (New >= TYPO3 9.x)
 Trigger | TYPO3 Code 
 --- | --- 
-t3ConLanguage |  [language = lang1, lang2, ...]
-t3ConIP |   [IP = 192.168.0.0, 192.168.0.0]
-t3ConHostname |  [hostname = *.example.com, myhost.*.com]
-t3ConApplicationContext |  [applicationContext = context1, context2, ...]
-t3ConHour | [hour = hour1, > hour2, < hour3, ...]
-t3ConMinute | [minute = minute, > minute, < minute, ...]
-t3ConYear | [year  = year , > year , < year , ...]
-t3ConDayofweek | [dayofweek  = dayofweek , > dayofweek , < dayofweek  , ...]
-t3ConDayofyear | [dayofyear = dayofyear , > dayofyear , < dayofyear , ...]
-t3ConUsergroup | [usergroup = group1-uid, group2-uid, ...]
-t3ConLogin | [loginUser = fe_users-uid, fe_users-uid, ...]
-t3ConUserfunc | [userFunc = user_function(argument1, argument2, ...)]
-t3ConPage | [page&#124;field = value]
-t3ConTreelevel | [treeLevel = levelnumber, levelnumber, ...]
-t3ConPidinrootline | [PIDinRootline = pages-uid, pages-uid, ...]
-t3ConPidupinrootline | [PIDupinRootline = pages-uid, pages-uid, ...]
-t3ConCompatversion | [compatVersion = x.y.z]
-t3ConGvarId | [globalVar = TSFE:id = page_uid&#124;page_uid&#124;page_uid]
-t3ConGvarPage | [globalVar = TSFE:page&#124;layout = 1]
-t3ConGvarGP | [globalVar = GP:print > 0]
-t3ConGvarLit | [globalVar = LIT:1 = {$constant_to_turnSomethingOn}]
-t3ConGvarconstant | [globalVar = LIT:1 = {$constant_to_turnSomethingOn}]
-t3ConGvarBELogin | [globalVar = TSFE:beUserLogin = 1]
-t3ConGvarBEuser | [globalVar = BE_USER&#124;user&#124;uid = 13]
-t3ConGStringHost | [globalString = IENV:HTTP_HOST = www.typo3.org]
-t3ConGStringReferer | [globalString = IENV:IENV:HTTP_REFERER  = /^$/]
-t3ConGString | [globalString = TSFE:page&#124;layout = 1]
+t3ApplicationContext | [applicationContext == "Development"]
+t3Page | [page["uid"] == 2]
+t3Constant | [{$foo.bar} == 4711]
+t3ConstantString | ["{$foo.bar}" == "4711"]
+t3Treelevel | [tree.level == 0]
+t3TreeRootLineIds | [2 in tree.rootLineIds]
+t3TreeRootLine | [tree.rootLine[0]["uid"] == 1]
+t3BackendUserIsAdmin | [backend.user.isAdmin]
+t3BackendUserIsLoggedIn | [backend.user.isLoggedIn]
+t3BackendUserId | [backend.user.userId == 5]
+t3BackendUserGroupList | [like(","~backend.user.userGroupList~",", "*,1,*")]
+t3FrontendUserIsLoggedIn | [frontend.user.isLoggedIn]
+t3FrontendUserId | [frontend.user.userId == 5]
+t3FrontendUserGroupList | [like(","~frontend.user.userGroupList~",", "*,1,*")]
+t3Typo3Version | [typo3.version == "9.5.5"]
+t3Typo3Branch | [typo3.branch == "9.5"]
+t3Typo3DevIpMask | [typo3.devIpMask == "172.18.0.6"]
+t3RequestGetQueryParams | [request.getQueryParams()['skipSessionUpdate'] == 1]
+t3RequestGetParsedBody | [request.getParsedBody()['foo'] == 1]
+t3RequestGetHeaders | [request.getHeaders()['Accept'] == 'json']
+t3RequestGetCookieParams | [request.getCookieParams()['foo'] == 1]
+t3RequestGetNormalizedParams | [request.getNormalizedParams().isHttps()]
+t3Date | [date("w") == 7]
+t3Like | [like("fooBarBaz", "/f[o]{2,2}[aBrz]+/")]
+t3Ip | [ip("172.18.*")]
+t3CompatVersion | [compatVersion("9.5")]
+t3GetTSFE | [getTSFE().type == 98]
+t3Getenv | [getenv("VIRTUAL_HOST") == "docs.typo3.org"]
+t3Feature | [feature("TypoScript.strictSyntax") === false]
+t3Usergroup | [usergroup("12")]
+t3Session | [session("foo|bar") == 1234567]
+t3Site | [site("base").getHost() == "docs.typo3.org"]
+t3SiteLanguage | [siteLanguage("locale") == "de_CH"]
+
+
+# Snippets for Conditions (New <= TYPO3 8.x)
+Trigger | TYPO3 Code 
+--- | --- 
+t3OldConLanguage |  [language = lang1, lang2, ...]
+t3OldConIP |   [IP = 192.168.0.0, 192.168.0.0]
+t3OldConHostname |  [hostname = *.example.com, myhost.*.com]
+t3OldConApplicationContext |  [applicationContext = context1, context2, ...]
+t3OldConHour | [hour = hour1, > hour2, < hour3, ...]
+t3OldConMinute | [minute = minute, > minute, < minute, ...]
+t3OldConYear | [year  = year , > year , < year , ...]
+t3OldConDayofweek | [dayofweek  = dayofweek , > dayofweek , < dayofweek  , ...]
+t3OldConDayofyear | [dayofyear = dayofyear , > dayofyear , < dayofyear , ...]
+t3OldConUsergroup | [usergroup = group1-uid, group2-uid, ...]
+t3OldConLogin | [loginUser = fe_users-uid, fe_users-uid, ...]
+t3OldConUserfunc | [userFunc = user_function(argument1, argument2, ...)]
+t3OldConPage | [page&#124;field = value]
+t3OldConTreelevel | [treeLevel = levelnumber, levelnumber, ...]
+t3OldConPidinrootline | [PIDinRootline = pages-uid, pages-uid, ...]
+t3OldConPidupinrootline | [PIDupinRootline = pages-uid, pages-uid, ...]
+t3OldConCompatversion | [compatVersion = x.y.z]
+t3OldConGvarId | [globalVar = TSFE:id = page_uid&#124;page_uid&#124;page_uid]
+t3OldConGvarPage | [globalVar = TSFE:page&#124;layout = 1]
+t3OldConGvarGP | [globalVar = GP:print > 0]
+t3OldConGvarLit | [globalVar = LIT:1 = {$constant_to_turnSomethingOn}]
+t3OldConGvarconstant | [globalVar = LIT:1 = {$constant_to_turnSomethingOn}]
+t3OldConGvarBELogin | [globalVar = TSFE:beUserLogin = 1]
+t3OldConGvarBEuser | [globalVar = BE_USER&#124;user&#124;uid = 13]
+t3OldConGStringHost | [globalString = IENV:HTTP_HOST = www.typo3.org]
+t3OldConGStringReferer | [globalString = IENV:IENV:HTTP_REFERER  = /^$/]
+t3OldConGString | [globalString = TSFE:page&#124;layout = 1]
 
 # Snippets for Fluid
 Trigger | TYPO3 Code 
@@ -143,21 +189,6 @@ t3FluidUriPageInline | {f:uri.page(pageUid: 23)}
 t3FluidUriTypolink | &lt;f:uri.typolink parameter=&quot;foo&quot; additionalParams=&quot;&quot;&gt;
 t3FluidUriTypolinkInline | {f:uri.typolink(parameter: 'foo', additionalParams: ')}
 
-## Manually change the .ts file association
-Open settings.json<br>
-&nbsp;&nbsp;&nbsp;**Windows** `%APPDATA%\Code\User\settings.json`<br>
-&nbsp;&nbsp;&nbsp;**Mac** `$HOME/Library/Application Support/Code/User/settings.json`<br>
-&nbsp;&nbsp;&nbsp;**Linux** `$HOME/.config/Code/User/settings.json`
-
-Add following lines<br>
-```
-"files.associations": {
-    "*.ts" : "typoscript",
-    "*.t3" : "typoscript"
-}
-```
-
-
 
 ## Donate & Support
 [Donate via PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CJTDRV6L4AR6J)
@@ -165,13 +196,13 @@ Add following lines<br>
 
 ## Source
 
-All snippets have been taken from [TYPO3.org](https://typo3.org/) <br>
-Source on [GitHub](https://github.com/MrSilaz/typo3snippets) <br>
+All snippets have been taken from [TYPO3.org](https://typo3.org/) 
+Source on [GitHub](https://github.com/MrSilaz/typo3snippets) 
 On Visual Studio [Marketplace](https://marketplace.visualstudio.com/items?itemName=ralffreit.typo3snippets) 
         
 ## License
 
-[GNU General Public License (GPL), Version 2.0](http://www.gnu.org/licenses/gpl-2.0.html)
+[GNU](http://www.gnu.org/licenses/gpl-2.0.html)
 
 ## Changelog
 **0.0.9** 
@@ -186,8 +217,10 @@ On Visual Studio [Marketplace](https://marketplace.visualstudio.com/items?itemNa
 - New Language "TypoScript" (! conflict with TypeScript, you need to change your settings manually)
 - Fluid and Typoscript add to HTML Language autocomplete
 
+
 **0.0.6**
 - 42 Fluid Snippets addet, little Readme fixes
+
 
 
 <!-- 
