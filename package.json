@@ -2,12 +2,12 @@
 	"name": "typo3snippets",
 	"displayName": "TYPO3 Code Snippets",
 	"description": "TYPO3 Code Snippet integration. Just type the letters 't3' to get a list of all available TYPO3 Code Snippets.",
-	"version": "0.0.9",
+	"version": "0.1.0",
 	"publisher": "ralffreit",
 	"license": "GNU",
 	"homepage": "http://www.freit.de",
 	"icon": "images/icon.png",
-	"preview": "false",
+	"preview": false,
 	"engines": {
 		"vscode": "^0.10.1"
 	},
@@ -23,37 +23,52 @@
 		"email": "ralf@freit.de"
 	},
 	"keywords": [
-		"typo3", "typoscript", "fluid", "autocomplete"
+		"typo3",
+		"typoscript",
+		"fluid",
+		"autocomplete"
 	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/MrSilaz/typo3snippets.git"
 	},
 	"contributes": {
-        "languages": [
+		"languages": [
 			{
 				"id": "typoscript",
-				"aliases": ["TypoScript", "typoscript"],
-				"extensions": [".ts",".t3",".fluid"]
-        	}
+				"aliases": [
+					"TypoScript",
+					"typoscript"
+				],
+				"extensions": [
+					".ts",
+					".t3",
+					".fluid"
+				]
+			}
 		],
 		"snippets": [
 			{
 				"language": "html",
 				"path": "./snippets/typoscript.json"
-			},{
+			},
+			{
 				"language": "typoscript",
 				"path": "./snippets/typoscript.json"
-			},{
+			},
+			{
 				"language": "typescript",
 				"path": "./snippets/typoscript.json"
-			},{
+			},
+			{
 				"language": "plaintext",
 				"path": "./snippets/typoscript.json"
-			},{
+			},
+			{
 				"language": "html",
 				"path": "./snippets/fluid.json"
-		}]
+			}
+		]
 	},
 	"devDependencies": {
 		"typescript": "^1.6.2",
@@ -63,5 +78,8 @@
 		"id": "20c8d2e7-5c76-4993-8ff5-36b0301cada3",
 		"publisherId": "7ae1d537-9541-46bd-875f-8ff903e7ca00",
 		"publisherDisplayName": "Ralf Freit"
+	},
+	"dependencies": {
+		"vsce": "^1.69.0"
 	}
 }

@@ -276,8 +276,6 @@
 	},
 
 
-
-
 	"t3FluidFormatPadding": {
 		"prefix": "t3FluidFormatPadding",
 		"body": [
@@ -288,14 +286,333 @@
 	"t3FluidFormatPaddingInline": {
 		"prefix": "t3FluidFormatPaddingInline",
 		"body": [
-			"{${1:TYPO3} -> f:format.padding(padLength: '${2:10}', padString: '${3:-=}')}$0"
+			"{${1:textObject} -> f:format.padding(padLength: '${2:10}', padString: '${3:-=}')}$0"
 		],
 		"description": "TYPO3 9+ Fluid \n--------------------------\nFormats a string using PHPs str_pad function. See https://www.php.net/manual/function.str_pad.php."
+	},
+	"t3FluidFormatStripTags": {
+		"prefix": "t3FluidFormatStripTags",
+		"body": [
+			"<f:format.stripTags allowedTags=\"${1:<p><span><div><script>}\">${2:<strong>awesome<strong>}</f:format.stripTags>$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nRemoves tags from the given string (applying PHPs strip_tags() function) See https://www.php.net/manual/function.strip-tags.php."
+	},
+	"t3FluidFormatStripTagsInline": {
+		"prefix": "t3FluidFormatStripTagsInline",
+		"body": [
+			"{${1:textObject} -> f:format.stripTags(allowedTags: '${2:<p><span><div><script>}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nRemoves tags from the given string (applying PHPs strip_tags() function) See https://www.php.net/manual/function.strip-tags.php."
+	},
+	"t3FluidFormatUrlencode": {
+		"prefix": "t3FluidFormatUrlencode",
+		"body": [
+			"<f:format.urlencode>${2:http://www.freit.de/?encode[this]=1}</f:format.urlencode>$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nEncodes the given string according to http://www.faqs.org/rfcs/rfc3986.html Applying PHPs rawurlencode() function. See https://www.php.net/manual/function.rawurlencode.php."
+	},
+	"t3FluidFormatUrlencodeInline": {
+		"prefix": "t3FluidFormatUrlencodeInline",
+		"body": [
+			"{${1:textObject} -> f:format.urlencode()}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nEncodes the given string according to http://www.faqs.org/rfcs/rfc3986.html Applying PHPs rawurlencode() function. See https://www.php.net/manual/function.rawurlencode.php."
+	},
+	"t3FluidLinkAction": {
+		"prefix": "t3FluidLinkAction",
+		"body": [
+			"<f:link.action action=\"${1:show}\">${2:action link}</f:link.action>$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nA ViewHelper for creating links to extbase actions."
+	},
+	"t3FluidLinkActionInline": {
+		"prefix": "t3FluidLinkActionInline",
+		"body": [
+			"{f:link.action(action: '${1:show}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nA ViewHelper for creating links to extbase actions."
+	},
+	"t3FluidLinkEmail": {
+		"prefix": "t3FluidLinkEmail",
+		"body": [
+			"<f:link.email email=\"${1:example@domain.tld}\"><!-- tag content - may be ignored! --></f:link.email>$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nEmail link ViewHelper. Generates an email link incorporating TYPO3s spamProtectEmailAddresses TypoScript setting."
+	},
+	"t3FluidLinkEmailInline": {
+		"prefix": "t3FluidLinkEmailInline",
+		"body": [
+			"{f:link.email(email: '${1:example@domain.tld}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nEmail link ViewHelper. Generates an email link incorporating TYPO3s spamProtectEmailAddresses TypoScript setting."
+	},
+	"t3FluidLinkExternal": {
+		"prefix": "t3FluidLinkExternal",
+		"body": [
+			"<f:link.external  uri=\"${1:http://www.freit.de}\" target=\"${2:_blank}\">${3:external link}</f:link.external>$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nA ViewHelper for creating links to external targets."
+	},
+	"t3FluidLinkExternalInline": {
+		"prefix": "t3FluidLinkExternalInline",
+		"body": [
+			"{f:link.external(uri: '${1:http://www.freit.de}', target:'${2:_blank}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nA ViewHelper for creating links to external targets."
+	},
+	"t3FluidLinkPage": {
+		"prefix": "t3FluidLinkPage",
+		"body": [
+			"<f:link.page  pageUid=\"${1:1}\" additionalParams=\"{${2:foo}: '${3:bar}'}\">${4:page link}</f:link.page>$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nA ViewHelper for creating links to TYPO3 pages."
+	},
+	"t3FluidLinkPageInline": {
+		"prefix": "t3FluidLinkPageInline",
+		"body": [
+			"{f:link.page(pageUid: '${1:1}', additionalParams:'{${2:foo}: '${3:bar}'}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nA ViewHelper for creating links to TYPO3 pages."
+	},
+	"t3FluidLinkTypolink": {
+		"prefix": "t3FluidLinkTypolink",
+		"body": [
+			"<f:link.typolink  parameter=\"${1:{link}}\">${2:Linktext}</f:link.typolink>$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nA ViewHelper to create links from fields supported by the link wizard."
+	},
+	"t3FluidLinkTypolinkInline": {
+		"prefix": "t3FluidLinkTypolinkInline",
+		"body": [
+			"{f:link.typolink(parameter: '${1:{link}}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nA ViewHelper to create links from fields supported by the link wizard."
+	},
+	"t3FluidSecurityIfAuthenticated": {
+		"prefix": "t3FluidSecurityIfAuthenticated",
+		"body": [
+			"<f:security.ifAuthenticated>",
+			"${1:his is being shown whenever a FE user is logged in}",
+			"</f:security.ifAuthenticated>$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nThis ViewHelper implements an ifAuthenticated/else condition for frontend users."
+	},
+	"t3FluidSecurityIfHasRole": {
+		"prefix": "t3FluidSecurityIfHasRole",
+		"body": [
+			"<f:security.ifHasRole role=\"Administrator\">",
+			"${1:This is being shown in case the current FE user belongs to a FE usergroup (aka role) titled \"Administrator\" (case sensitive)}",
+			"</f:security.ifHasRole>>$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nThis ViewHelper implements an ifHasRole/else condition for frontend groups."
+	},
+	"t3FluidUriAction": {
+		"prefix": "t3FluidUriAction",
+		"body": [
+			"<f:uri.action action=\"${1:show}\" />$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nA ViewHelper for creating URIs to extbase actions.."
+	},
+	"t3FluidUriActionInline": {
+		"prefix": "t3FluidUriActionInline",
+		"body": [
+			"{f:uri.action(action: '${1:show}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nA ViewHelper for creating URIs to extbase actions."
+	},
+	"t3FluidUriEmail": {
+		"prefix": "t3FluidUriEmail",
+		"body": [
+			"<f:uri.email email=\"${1:example@domain.tld}\" />$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nEmail URI ViewHelper. Generates an email URI incorporating TYPO3s spamProtectEmailAddresses TypoScript setting."
+	},
+	"t3FluidUriEmailInline": {
+		"prefix": "t3FluidUriEmailInline",
+		"body": [
+			"{f:uri.email(email: '${1:example@domain.tld}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nEmail URI ViewHelper. Generates an email URI incorporating TYPO3s spamProtectEmailAddresses TypoScript setting."
+	},
+	"t3FluidUriExternal": {
+		"prefix": "t3FluidUriExternal",
+		"body": [
+			"<f:uri.external  uri=\"${1:http://www.freit.de}\" />$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nA ViewHelper for creating URIs to external targets. Currently the specified URI is simply passed through."
+	},
+	"t3FluidUriExternalInline": {
+		"prefix": "t3FluidUriExternalInline",
+		"body": [
+			"{f:uri.external(uri: '${1:http://www.freit.de}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nA ViewHelper for creating URIs to external targets. Currently the specified URI is simply passed through."
+	},
+	"t3FluidUriImage": {
+		"prefix": "t3FluidUriImage",
+		"body": [
+			"<f:uri.image  image=\"${1:{imageObject}}\" />$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nResizes a given image (if required) and returns its relative path."
+	},
+	"t3FluidUriImageInline": {
+		"prefix": "t3FluidUriImageInline",
+		"body": [
+			"{f:uri.image(image: '${1:{imageObject}}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nResizes a given image (if required) and returns its relative path."
+	},
+	"t3FluidUriPage": {
+		"prefix": "t3FluidUriPage",
+		"body": [
+			"<f:uri.page  pageUid=\"${1:1}\" additionalParams=\"{${2:foo}: \\'${3:bar}\\'}\" />$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nA ViewHelper for creating URIs to TYPO3 pages."
+	},
+	"t3FluidUriPageInline": {
+		"prefix": "t3FluidUriPageInline",
+		"body": [
+			"{f:uri.page(pageUid: '${1:1}', additionalParams:'{${2:foo}: '${3:bar}'}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nA ViewHelper for creating URIs to TYPO3 pages."
+	},
+	"t3FluidUriResource": {
+		"prefix": "t3FluidUriResource",
+		"body": [
+			"<f:uri.resource  path=\"${1:css/stylesheet.css}\" />$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nA ViewHelper for creating URIs to resources."
+	},
+	"t3FluidUriResourceInline": {
+		"prefix": "t3FluidUriResourceInline",
+		"body": [
+			"{f:uri.resource(path: '${1:css/stylesheet.css}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nA ViewHelper for creating URIs to resources."
+	},
+	"t3FluidUriTypolink": {
+		"prefix": "t3FluidUriTypolink",
+		"body": [
+			"<f:uri.typolink  parameter=\"${1:{link}}\" />$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nA ViewHelper to create uris from fields supported by the link wizard."
+	},
+	"t3FluidUriTypolinkInline": {
+		"prefix": "t3FluidUriTypolinkInline",
+		"body": [
+			"{f:uri.typolink(parameter: '${1:{link}}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nA ViewHelper to create links from fields supported by the link wizard."
+	},
+	"t3FluidWidgetAutocomplete": {
+		"prefix": "t3FluidWidgetAutocomplete",
+		"body": [
+			"<f:widget.autocomplete for=\"${1:name}\" objects=\"${2:{posts}}\" searchProperty=\"${3:author}\">"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nSimple autocomplete widget. Make sure to include jQuery and jQuery UI in the HTML."
+	},
+	"t3FluidWidgetLink": {
+		"prefix": "t3FluidWidgetLink",
+		"body": [
+			"<f:widget.link action=\"${1:show}\">${1:link}</f:widget.link>"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nA ViewHelper for creating Links to Extbase actions within widgets."
+	},
+	"t3FluidWidgetPaginate": {
+		"prefix": "t3FluidWidgetPaginate",
+		"body": [
+			"<f:widget.paginate objects=\"${1:{blogs}}\" as=\"${2:paginatedBlogs}\" configuration=\"{'itemsPerPage': 10,'insertAbove': false,'insertBelow': true,'maximumNumberOfLinks': 99}\">",
+			"${3:use \\{paginatedBlogs\\} as you used \\{blogs\\} before, most certainly inside\n   a <f:for> loop.}",
+			"</f:widget.paginate>"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nThis ViewHelper renders a Pagination of objects."
+	},
+	"t3FluidWidgetUri": {
+		"prefix": "t3FluidWidgetUri",
+		"body": [
+			"<f:widget.uri action=\"${1:show}\" />$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nA ViewHelper for creating URIs to Extbase actions within widgets."
+	},
+
+	"t3FluidCObject": {
+		"prefix": "t3FluidCObject",
+		"body": [
+			"<f:cObject typoscriptObjectPath=\"${1:lib.customHeader}\" data=\"${2:{article}}\" currentValueKey=\"${3:title}\" />$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nThis ViewHelper renders CObjects from the global TypoScript configuration."
+	},
+
+
+	"t3FluidCObjectInline": {
+		"prefix": "t3FluidCObjectInline",
+		"body": [
+			"{article -> f:cObject(typoscriptObjectPath: '${1:lib.customHeader}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nThis ViewHelper renders CObjects from the global TypoScript configuration."
+	},
+
+	"t3FluidDebug": {
+		"prefix": "t3FluidDebug",
+		"body": [
+			"<f:debug inline=\"${1:1}\" title=\"${2:Debug Information}\">${3:{arrayOrObject}}</f:debug>$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nThis ViewHelper generates a HTML dump of the tagged variable."
+	},
+
+
+	"t3FluidImage": {
+		"prefix": "t3FluidImage",
+		"body": [
+			"<f:image image=\"${1:{imageObject}}\" />$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nResizes a given image (if required) and renders the respective img tag."
+	},
+
+	"t3FluidMedia": {
+		"prefix": "t3FluidMedia",
+		"body": [
+			"<f:media file=\"${1:{file}}\"  additionalConfig=\"{loop: '1', autoplay: '1'}\" />$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nRender a given media file with the correct html tag.\n\nIt asks the RendererRegistry for the correct Renderer class and if not found it falls back to the ImageViewHelper as that is the “Renderer” class for images in Fluid context."
+	},
+
+
+	"t3FluidRender": {
+		"prefix": "t3FluidRender",
+		"body": [
+			"<f:render partial=\"${1:SomePartial}\" section=\"${2:SomeSection}\" arguments=\"{${3:foo}: ${4:someVariable}}\" />$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nClass RenderViewHelper"
+	},
+
+	"t3FluidRenderInline": {
+		"prefix": "t3FluidRenderInline",
+		"body": [
+			"{f:render(section: '${1:SomeSection}', partial: '${2:SomePartial}', arguments: {${3:foo}: '${4:someVariable}'}, optional: ${5:1})}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nClass RenderViewHelper"
 	},
 
 
 
 
+
+	"t3FluidTranslate": {
+		"prefix": "t3FluidTranslate",
+		"body": [
+			"<f:translate key=\"${1:htmlKey}\" htmlEscape=\"${2:false}\" />$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nTranslate a key from locallang. The files are loaded from the folder Resources/Private/Language/."
+	},
+
+	"t3FluidTranslateInline": {
+		"prefix": "t3FluidTranslateInline",
+		"body": [
+			"{f:translate(key: '${1:htmlKey}', htmlEscape: '${2:false}')}$0"
+		],
+		"description": "TYPO3 9+ Fluid \n--------------------------\nTranslate a key from locallang. The files are loaded from the folder Resources/Private/Language/."
+	},
 
 
 
