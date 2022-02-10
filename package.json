@@ -33,35 +33,9 @@
 		"url": "https://github.com/MrSilaz/typo3snippets.git"
 	},
 	"contributes": {
-		"languages": [
-			{
-				"id": "typoscript",
-				"aliases": [
-					"TypoScript",
-					"typoscript"
-				],
-				"extensions": [
-					".ts",
-					".t3",
-					".fluid"
-				]
-			}
-		],
 		"snippets": [
 			{
-				"language": "html",
-				"path": "./snippets/typoscript.json"
-			},
-			{
 				"language": "typoscript",
-				"path": "./snippets/typoscript.json"
-			},
-			{
-				"language": "typescript",
-				"path": "./snippets/typoscript.json"
-			},
-			{
-				"language": "plaintext",
 				"path": "./snippets/typoscript.json"
 			},
 			{
