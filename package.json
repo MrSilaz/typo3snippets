@@ -72,7 +72,7 @@
 	},
 	"devDependencies": {
 		"typescript": "^1.6.2",
-		"vscode": "0.10.x"
+		"vscode": "1.1.x"
 	},
 	"__metadata": {
 		"id": "20c8d2e7-5c76-4993-8ff5-36b0301cada3",
